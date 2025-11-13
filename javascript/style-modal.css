@@ -1,3 +1,20 @@
+@font-face {
+  font-family: headings;
+  src: url('TheGlobePersonalUseBold-2ORlw.woff2') format('woff2'),
+       url('TheGlobePersonalUseBold-2ORlw.woff') format('woff');
+}
+@font-face {
+  font-family: text;
+  src: url('SebneueMedium-401p.woff2') format('woff2'),
+       url('SebneueMedium-401p.woff') format('woff');
+}
+
+h1, h2, h3 {
+  font-family: headings;
+}
+p, li {
+  font-family: text;
+}
 
 body {
   margin: 0;
