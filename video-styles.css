@@ -1,0 +1,52 @@
+/* Make the header a positioning context for overlay elements */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+header {
+    position: relative;
+    /* Fill the viewport height; use dynamic viewport unit when available */
+    height: 100dvh; /* modern browsers */
+    height: 100vh;  /* fallback */
+    overflow: hidden; /* hide any overflow from object-fit: cover */
+}
+
+/* H1 should sit on top of the video file at the top of the HTML page */
+h1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background for readability */
+    padding: 5px;
+    z-index: 10; /* ensure it sits above the video */
+}
+/* Overlay section should sit on top of the video and stack its paragraphs */
+header #overlay{
+    position: absolute;
+    top: 50%;
+    right: 10px; /* keep some padding from the right edge */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1.1em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background for readability */
+    padding: 10px;
+    z-index: 10; /* ensure it sits above the video */
+    pointer-events: none; /* allow clicks to reach the video */
+}
+
+header #overlay p{
+    margin: 0;
+}
+
+/* Ensure the video behaves as a block and fills width without inline gaps */
+header video {
+    position: absolute;
+    inset: 0;           /* top:0; right:0; bottom:0; left:0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* or 'contain' if you prefer full visibility */
+}

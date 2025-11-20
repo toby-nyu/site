@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Example</title>
+    <link rel="stylesheet" href="video-styles.css">
+</head>
+<body>
+   
+    <header>
+         <!-- Video example that fills the page width and has controls -->
+        <video width="100%" autoplay muted playsinline loop poster="poster-image.jpg">
+            <source src="sample-video.mp4" type="video/mp4">
+            <source src="sample-video.webm" type="video/webm">
+            <source src="sample-video.ogv" type="video/ogg">
+            Your browser does not support the video element.
+        </video>
+        <h1>Video Example</h1>
+       <section id="overlay">
+         <p>This is an example of a video element that automatically plays</p> 
+        <p>The video is muted, and fits the width of the page</p>
+        <p>The video is set to play inline on mobile devices</p>
+        <p>Make sure to include multiple source formats for better browser 
+        compatibility</p>
+    </section>
+    </header>
+    
+    <p>Where is this text?</p>
+</body>
+</html>
