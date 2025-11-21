@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account Form</title>
+<link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+<header>
+    <div id="logo">
+        <a href="../index.html" title="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <mask id="cutout">
+                        <rect x="0" y="0" width="200" height="200" fill="white"/>
+                        <text 
+                            x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                            font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                            TB
+                        </text>
+                    </mask>
+                </defs>
+                <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+            </svg>
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Forms Home</a></li>
+            <li><a href="form-demo.html">Form Demo</a></li>
+            <li><a href="form.html">Validated Form</a></li>
+            <li><a href="form2.html">PHP Code</a></li>
+        </ul>
+    </nav>
+</header>
+<form id="createAccountForm" method="post" action="https://tobibrodie.co.uk/form.php">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+  </div>
+
+  <input type="submit" value="Create Account">
+</form>
+
+<script src="../js/validate.js"></script>
+</body>
+</html>

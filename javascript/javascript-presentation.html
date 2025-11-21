@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events Presentation</title>
+    <link rel="stylesheet" href="../css/javascript.css">
+</head>
+<body>
+    <div id="logo">
+        <a href="../index.html" title="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <mask id="cutout">
+                        <rect x="0" y="0" width="200" height="200" fill="white"/>
+                        <text 
+                            x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                            font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                            TB
+                        </text>
+                    </mask>
+                </defs>
+                <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+            </svg>
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">JavaScript Home</a></li>
+            <li><a href="javascript-presentation.html">Events Demo</a></li>
+            <li><a href="js-site.html">Multi-Page Site</a></li>
+            <li><a href="event-bubbling.html">Event Bubbling</a></li>
+        </ul>
+    </nav>
+    <h1>JavaScript Events Demo</h1>
+    
+    <div class="event-section">
+        <h2>Button Click Event</h2>
+        <button id="btn">Click Me!</button>
+    </div>
+    
+    <div class="event-section">
+        <h2>Keydown Event</h2>
+        <p>Press the <strong>Enter</strong> key anywhere on this page (check the console).</p>
+    </div>
+    
+    <div class="event-section">
+        <h2>Form Submission Event</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="submit" value="Submit Form">
+        </form>
+    </div>
+    
+    <div class="event-section">
+        <h2>Mouse Move Event</h2>
+        <div id="canvas">Move your mouse over this area (check the console)</div>
+    </div>
+    
+    <div class="event-section">
+        <h2>Touch Start Event</h2>
+        <p>Touch the screen on a mobile device (check the console).</p>
+    </div>
+    
+    <div class="event-section">
+        <h2>Pointer Down Event</h2>
+        <div id="drag">Drag Me!</div>
+    </div>
+</body>
+</html>

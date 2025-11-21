@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Audio & Video Examples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML5 audio and video implementation examples">
+    <link rel="stylesheet" href="../css/av-styles.css">
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Audio & Video Examples</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Audio & Video Home</a></li>
+          <li><a href="audio.html">Audio</a></li>
+          <li><a href="video.html">Video</a></li>
+          <li><a href="video_responsive.html">Responsive Video</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="logo">
+        <a href="../index.html" title="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <mask id="cutout">
+                <rect x="0" y="0" width="200" height="200" fill="white"/>
+                <text 
+                  x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                  TB
+                </text>
+              </mask>
+            </defs>
+            <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+          </svg>
+        </a>
+      </div>
+
+      <h2>About This Section</h2>
+      <p>This section demonstrates various HTML5 audio and video techniques, including different implementation methods and responsive design approaches.</p>
+
+      <section>
+        <h3><a href="audio.html">Audio Example</a></h3>
+        <p>This page demonstrates the HTML5 <code>&lt;audio&gt;</code> element with multiple source formats for cross-browser compatibility.</p>
+        <h4>Techniques Used:</h4>
+        <ul>
+          <li><strong>HTML5 Audio Element:</strong> Uses the native <code>&lt;audio&gt;</code> tag with <code>controls</code> attribute</li>
+          <li><strong>Multiple Source Formats:</strong> Includes both MP3 and OGG formats to ensure compatibility across different browsers</li>
+          <li><strong>Fallback Content:</strong> Provides a message for browsers that don't support the audio element</li>
+          <li><strong>SVG Logo:</strong> Implements inline SVG with CSS mask for logo styling</li>
+          <li><strong>Unified Stylesheet:</strong> Uses shared <code>av-styles.css</code> with class-based styling for consistency</li>
+          <li><strong>Responsive Navigation:</strong> Vertically stacked navigation on mobile with media queries</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><a href="video.html">Video Example</a></h3>
+        <p>This page demonstrates a full-screen video background with overlaid text elements, creating an immersive hero section.</p>
+        <h4>Techniques Used:</h4>
+        <ul>
+          <li><strong>HTML5 Video Element:</strong> Autoplay, muted, looping video that fills the viewport</li>
+          <li><strong>Absolute Positioning:</strong> Logo, navigation, and heading positioned over video using <code>position: absolute</code></li>
+          <li><strong>CSS Viewport Units:</strong> <code>100vh</code> and <code>100dvh</code> for full-height layout</li>
+          <li><strong>Object-fit Cover:</strong> Video scales to fill container while maintaining aspect ratio using <code>inset: 0</code></li>
+          <li><strong>Z-index Layering:</strong> Proper stacking of video, logo, navigation, and text overlays</li>
+          <li><strong>Multiple Video Formats:</strong> MP4, WebM, and OGV sources for browser compatibility</li>
+          <li><strong>Semi-transparent Overlays:</strong> <code>rgba()</code> for readable text and navigation over video</li>
+          <li><strong>Body Margin Control:</strong> Uses <code>:has()</code> selector to remove margins on fullscreen video pages</li>
+          <li><strong>Responsive Design:</strong> Media queries adjust logo size, font sizes, and navigation layout for mobile</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><a href="video_responsive.html">Responsive Video Example</a></h3>
+        <p>This page demonstrates an advanced implementation with JavaScript-based responsive video source switching based on screen width.</p>
+        <h4>Techniques Used:</h4>
+        <ul>
+          <li><strong>Dynamic Source Switching:</strong> JavaScript function that changes video source based on <code>window.innerWidth</code></li>
+          <li><strong>Media Optimization:</strong> Serves different video resolutions (480p, 720p, 1080p) for different screen sizes</li>
+          <li><strong>Event Listeners:</strong> Window resize event with debouncing to prevent excessive function calls</li>
+          <li><strong>Video API:</strong> Uses <code>video.load()</code> to reload video when source changes</li>
+          <li><strong>Performance Optimization:</strong> Debounce timer delays video reload during resize to improve performance</li>
+          <li><strong>Fixed Navigation:</strong> Uses <code>position: fixed</code> for navigation that stays in viewport during scroll</li>
+          <li><strong>Conditional Logic:</strong> Breakpoints at 1280px and 1920px for optimal video serving</li>
+          <li><strong>CSS Architecture:</strong> Shares unified <code>av-styles.css</code> with ID-based selector (<code>#video-nav</code>) for fixed positioning</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Key Learning Outcomes</h3>
+        <ul>
+          <li>Understand HTML5 multimedia elements and their attributes</li>
+          <li>Implement cross-browser compatible media with multiple source formats</li>
+          <li>Use CSS positioning (absolute, fixed) and viewport units for immersive layouts</li>
+          <li>Apply JavaScript for responsive media optimization</li>
+          <li>Create accessible fallback content for older browsers</li>
+          <li>Optimize media delivery based on device capabilities</li>
+          <li>Build unified CSS architecture with class and ID-based variations</li>
+          <li>Implement responsive design with media queries for mobile-first layouts</li>
+          <li>Use modern CSS selectors like <code>:has()</code> for conditional styling</li>
+          <li>Apply negative margins to extend elements beyond parent containers</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 NYU London - Web Design & Computer Principles</p>
+    </footer>
+  </body>
+</html>

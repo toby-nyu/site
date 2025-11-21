@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML Page</title>
+    <link rel="stylesheet" href="../css/js-site.css">
+    <script src="../js/article-expander.js" defer></script>
+</head>
+<body>
+    <header>
+        <div id="logo">
+                <a href="../" title="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                            <mask id="cutout">
+                                <rect x="0" y="0" width="200" height="200" fill="white"/>
+                                <text 
+                                    x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                                    font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                                    TB
+                                </text>
+                            </mask>
+                        </defs>
+                        <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+                    </svg>
+                </a>
+            </div>  
+        <h1>Tobi's fact or Fiction news page</h1>
+        <nav id="js-nav">
+            <ul>
+                <li><a href="index.html">JavaScript Home</a></li>
+                <li><a href="javascript-presentation.html">Events Demo</a></li>
+                <li><a href="js-site.html">Multi-Page Site</a></li>
+                <li><a href="event-bubbling.html">Event Bubbling</a></li>
+            </ul>
+        </nav>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="js-site.html">Home</a></li>
+                <li><a href="real.html">Real Articles</a></li>
+                <li><a href="fake.html">Fictional Articles</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Latest articles</h2>
+            <article>
+            <h2>The Evolution of HTML: From Static Pages to Dynamic Experiences</h2>
+                <p>HTML, or HyperText Markup Language, is the backbone of the web. It began as a simple way to structure documents for sharing scientific information, but over the decades, it has evolved into a powerful tool for building rich, interactive websites. Understanding its history helps us appreciate the design decisions behind modern web development.</p>
+                <p>In the early 1990s, Tim Berners-Lee introduced HTML as part of the World Wide Web project. The first version was incredibly basic—just a handful of tags for paragraphs, headings, and links. There was no styling, no scripting, and certainly no multimedia. Yet, it revolutionized how information was shared.</p>
+                <p>As the web grew, so did HTML. By the mid-1990s, HTML 3.2 introduced tables and scripting support, paving the way for more complex layouts and interactivity. HTML 4.01, released in 1999, added support for stylesheets and forms, but it also became bloated and inconsistent across browsers.</p>
+                <p>This led to the development of XHTML, an attempt to make HTML more like XML—strict and well-formed. However, it proved too rigid for the fast-moving web. The real breakthrough came with HTML5, which was finalized in 2014. HTML5 reimagined the language for modern needs, adding semantic tags, native multimedia support, and APIs for offline storage, geolocation, and more.</p>
+                <p>Today, HTML continues to evolve alongside CSS and JavaScript, forming the foundation of responsive, accessible, and dynamic web applications. Its simplicity remains its strength, even as its capabilities expand.</p>
+            </article>
+            <article class="expandable-article">
+                <h2>The Evolution of HTML: From Static Pages to Dynamic Experiences</h2>
+                <p>HTML, or HyperText Markup Language, is the backbone of the web. 
+                It began as a simple way to structure documents for sharing scientific information, 
+                but over the decades, it has evolved into a powerful tool for building rich, interactive websites.                </p>
+                <p>In the early 1990s, Tim Berners-Lee introduced HTML as part of the World Wide Web project. 
+                The first version was incredibly basic—just a handful of tags for paragraphs, headings, and links. 
+                There was no styling, no scripting, and certainly no multimedia. 
+                Yet, it revolutionized how information was shared.</p>
+                <p>As the web grew, so did HTML. By the mid-1990s, HTML 3.2 introduced tables and scripting support, 
+                paving the way for more complex layouts and interactivity. HTML 4.01, released in 1999, 
+                added support for stylesheets and forms, but it also became bloated and inconsistent across browsers.</p>
+                <p>This led to the development of XHTML, an attempt to make HTML more like XML—strict and well-formed. 
+                However, it proved too rigid for the fast-moving web. The real breakthrough came with HTML5, 
+                which was finalized in 2014. HTML5 reimagined the language for modern needs, adding semantic tags, 
+                native multimedia support, and APIs for offline storage, geolocation, and more.</p>
+                <p>Today, HTML continues to evolve alongside CSS and JavaScript, forming the foundation of responsive, 
+                accessible, and dynamic web applications. Its simplicity remains its strength, 
+                even as its capabilities expand.</p>
+            </article>
+            <article>
+                <h2>Understanding Memory: RAM, ROM, and the Brain of Your Computer</h2>
+                <p>Memory is one of the most fundamental concepts in computing. It determines how fast a computer 
+                can operate, how much data it can handle, and how efficiently it can multitask. But not all memory is 
+                created equal—understanding the differences between RAM, ROM, and other types is key to grasping how 
+                computers work.</p>
+                <p>RAM (Random Access Memory) is the short-term memory of a computer. It temporarily stores data 
+                that the CPU needs to access quickly. When you open a program or load a webpage, it’s stored in RAM so 
+                your computer can respond instantly. However, RAM is volatile—once the power is off, the data disappears.</p>
+                <p>ROM (Read-Only Memory), on the other hand, is non-volatile. It stores essential instructions  
+                or booting up the computer, like the BIOS or firmware. Unlike RAM, ROM cannot be easily modified, 
+                which makes it ideal for storing permanent system-level code.</p>
+                <p>Beyond RAM and ROM, modern computers use other types of memory like cache 
+                (ultra-fast memory close to the CPU), virtual memory (a portion of the hard drive used when RAM is full), 
+                and storage memory (like SSDs and HDDs). Each plays a unique role in balancing speed, capacity, and cost.</p>
+                <p>Understanding how these types of memory interact helps explain why some computers are faster 
+                than others, why multitasking can slow down performance, and why upgrading RAM can make a big difference. 
+                It’s not just about storage—it’s about how efficiently your system can think.</p>
+            </article>
+            <article>
+            <h2>Why Open Source Matters: Collaboration, Innovation, and Freedom</h2>
+                <p>Open source software is more than just free code—it’s a philosophy that has shaped the digital world. 
+                From Linux to Firefox to WordPress, open source projects power much of the internet. But why does 
+                open source matter, and what makes it so transformative?</p>
+                <p>At its core, open source means that the source code of a program is freely 
+                available for anyone to inspect, modify, and distribute. This transparency fosters 
+                trust and collaboration. Developers from around the world can contribute improvements, 
+                fix bugs, and adapt software to new needs.</p>
+                <p>Open source also accelerates innovation. Instead of reinventing the wheel, 
+                developers can build on existing tools. This has led to rapid advancements in areas like web development, 
+                artificial intelligence, and cybersecurity. Communities form around projects, 
+                sharing knowledge and pushing boundaries.</p>
+                <p>Importantly, open source promotes digital freedom. Users aren’t locked into proprietary 
+                systems—they can customize software to suit their needs, audit it for security, and avoid vendor lock-in. 
+                This is especially vital in education, government, and developing regions where cost and control are 
+                critical.</p>
+                <p>Despite its benefits, open source faces challenges: sustainability, funding, and governance. 
+                Many projects rely on volunteers, and maintaining quality over time can be difficult. 
+                Yet, the open source model continues to thrive, proving that collaboration can rival 
+                even the biggest corporations.</p>
+            </article>
+
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 NYU. All rights reserved.</p>
+    </footer>
+</html>

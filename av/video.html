@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Example</title>
+    <link rel="stylesheet" href="../css/av-styles.css">
+</head>
+<body>
+    <header class="fullscreen">
+        <div id="logo">
+            <a href="../index.html" title="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <mask id="cutout">
+                            <rect x="0" y="0" width="200" height="200" fill="white"/>
+                            <text 
+                                x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                                font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                                TB
+                            </text>
+                        </mask>
+                    </defs>
+                    <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+                </svg>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Audio & Video Home</a></li>
+                <li><a href="audio.html">Audio</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="video_responsive.html">Responsive Video</a></li>
+            </ul>
+        </nav>
+         <!-- Video example that fills the page width and has controls -->
+        <video width="100%" autoplay muted playsinline loop poster="poster-image.jpg">
+            <source src="../media/sample-video.mp4" type="video/mp4">
+            <source src="../media/sample-video.webm" type="video/webm">
+            <source src="../media/sample-video.ogv" type="video/ogg">
+            Your browser does not support the video element.
+        </video>
+        <h1>Video Example</h1>
+       <section id="overlay">
+         <p>This is an example of a video element that automatically plays</p> 
+        <p>The video is muted, and fits the width of the page</p>
+        <p>The video is set to play inline on mobile devices</p>
+        <p>Make sure to include multiple source formats for better browser 
+        compatibility</p>
+    </section>
+    </header>
+</body>
+
+</html>

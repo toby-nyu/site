@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript Examples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript demonstrations including events, DOM manipulation, and event flow">
+    <link rel="stylesheet" href="../css/javascript.css">
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <a href="../index.html" title="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <mask id="cutout">
+                <rect x="0" y="0" width="200" height="200" fill="white"/>
+                <text 
+                  x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                  TB
+                </text>
+              </mask>
+            </defs>
+            <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+          </svg>
+        </a>
+      </div>
+      <div>
+        <h1>JavaScript Examples</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">JavaScript Home</a></li>
+          <li><a href="javascript-presentation.html">Events Demo</a></li>
+          <li><a href="js-site.html">Multi-Page Site</a></li>
+          <li><a href="event-bubbling.html">Event Bubbling</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>About This Section</h2>
+      <p>This section demonstrates essential JavaScript concepts including event handling, DOM manipulation, event propagation, and dynamic content management across multiple pages.</p>
+
+      <section>
+        <h3><a href="javascript-presentation.html">JavaScript Events Demo</a></h3>
+        <p>This page provides interactive demonstrations of various JavaScript event types, including mouse, keyboard, form, and touch events.</p>
+        <h4>Techniques Used:</h4>
+        <ul>
+          <li><strong>Click Events:</strong> Button click handling with <code>addEventListener('click')</code></li>
+          <li><strong>Keyboard Events:</strong> Keydown event detection for Enter key using <code>addEventListener('keydown')</code></li>
+          <li><strong>Form Events:</strong> Form submission handling with <code>preventDefault()</code> to control default behavior</li>
+          <li><strong>Mouse Events:</strong> Mouse move tracking over canvas element with coordinate logging</li>
+          <li><strong>Touch Events:</strong> Touch start detection for mobile device interaction</li>
+          <li><strong>Pointer Events:</strong> Drag functionality using pointer down events for universal input support</li>
+          <li><strong>Inline Styles:</strong> CSS-in-HTML styling approach for self-contained demonstration</li>
+          <li><strong>Console Logging:</strong> Event data output to browser console for debugging and learning</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><a href="js-site.html">Multi-Page JavaScript Site</a></h3>
+        <p>This page demonstrates JavaScript-powered navigation and content management across a multi-page website with separate pages for real and fictional news articles.</p>
+        <h4>Techniques Used:</h4>
+        <ul>
+          <li><strong>External JavaScript:</strong> Uses separate JS file (<code>script.js</code>) with <code>defer</code> attribute for proper loading order</li>
+          <li><strong>External CSS:</strong> Links to external stylesheet (<code>style.css</code>) for separation of concerns</li>
+          <li><strong>DOM Manipulation:</strong> Dynamic content insertion and element creation</li>
+          <li><strong>Navigation System:</strong> Multi-page site structure with consistent header and navigation across pages</li>
+          <li><strong>Semantic HTML:</strong> Proper use of <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code></li>
+          <li><strong>SVG Logo Integration:</strong> Inline SVG with CSS mask for consistent branding</li>
+          <li><strong>Content Organization:</strong> Separate pages for different content categories (real vs. fictional articles)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><a href="event-bubbling.html">Event Bubbling and Propagation</a></h3>
+        <p>This page provides an in-depth demonstration of event propagation phases (capturing, target, bubbling) and how to control event flow using <code>stopPropagation()</code>.</p>
+        <h4>Techniques Used:</h4>
+        <ul>
+          <li><strong>Event Bubbling:</strong> Demonstrates default event bubbling behavior where events propagate from child to parent elements</li>
+          <li><strong>Event Propagation Control:</strong> Uses <code>stopPropagation()</code> to prevent event bubbling when needed</li>
+          <li><strong>Three-Phase Event Flow:</strong> Explains capturing phase, target phase, and bubbling phase with practical examples</li>
+          <li><strong>Event Delegation:</strong> Demonstrates pattern of adding single listener to parent for handling multiple child events</li>
+          <li><strong>Capture Phase Listeners:</strong> Shows <code>{ capture: true }</code> option for listening during capture phase</li>
+          <li><strong>Event Properties:</strong> Uses <code>e.target</code> and <code>e.currentTarget</code> to understand event flow</li>
+          <li><strong>Nested Elements:</strong> Parent-child div structure to visualize event propagation</li>
+          <li><strong>Visual Feedback:</strong> Interactive buttons and colored divs to show which elements respond to events</li>
+          <li><strong>Educational Documentation:</strong> Extensive inline explanations with code examples and best practices</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Key Learning Outcomes</h3>
+        <ul>
+          <li>Understand different JavaScript event types (click, keydown, submit, mousemove, touch, pointer)</li>
+          <li>Use <code>addEventListener()</code> to attach event handlers to DOM elements</li>
+          <li>Prevent default browser behaviors with <code>preventDefault()</code></li>
+          <li>Implement event delegation patterns for efficient event handling</li>
+          <li>Control event propagation using <code>stopPropagation()</code> and <code>stopImmediatePropagation()</code></li>
+          <li>Understand the three phases of event flow: capture → target → bubble</li>
+          <li>Separate concerns using external CSS and JavaScript files</li>
+          <li>Use <code>defer</code> attribute for proper script loading timing</li>
+          <li>Debug events using console logging and event properties</li>
+          <li>Structure multi-page applications with consistent navigation and layout</li>
+          <li>Apply inline vs. external styling approaches appropriately</li>
+          <li>Implement responsive navigation with flexbox and media queries</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 NYU London - Web Design & Computer Principles</p>
+    </footer>
+  </body>
+</html>

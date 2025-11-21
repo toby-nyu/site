@@ -1,0 +1,746 @@
+/* ============================================
+   CSS CUSTOM PROPERTIES (Variables)
+   Define reusable values for consistency
+   ============================================ */
+
+:root {
+    /* Color palette */
+    --color-primary: #0073e6;
+    --color-primary-dark: #005bb5;
+    --color-primary-hover: rgba(0, 115, 230, 0.9);
+    --color-error: #f44336;
+    --color-success: #4caf50;
+    --color-focus: #2196f3;
+    --color-purple: #6a5acd;
+    --color-purple-light: #9370db;
+    --color-text: #333;
+    --color-text-light: #666;
+    --color-border: #ccc;
+    --color-bg-gray: #f5f5f5;
+    --color-bg-code: #272822;
+    --color-bg-light-blue: #e3f2fd;
+    --color-beige: #f5deb3;
+    
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    
+    /* Logo sizing */
+    --logo-size: 80px;
+    --logo-size-tablet: 60px;
+    --logo-size-mobile: 50px;
+    
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-logo: 15px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.4s ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   BASIC PAGE STYLING
+   ============================================ */
+
+/* Set default font and spacing for the entire page */
+body {
+    font-family: Arial, sans-serif;
+    margin: var(--spacing-lg);
+}
+
+/* ============================================
+   HEADER AND NAVIGATION
+   ============================================ */
+
+/* Fixed header container for logo and navigation */
+header {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    min-height: var(--logo-size);
+}
+
+/* Center the main heading and limit its width */
+h1 {
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+}
+
+/* Center the form and set a maximum width for readability */
+form {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ============================================
+   FIELDSET AND FORM STRUCTURE
+   ============================================ */
+
+/* Style the fieldset containers that group related fields */
+fieldset {
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Make the fieldset legend (title) bold */
+legend {
+    font-weight: bold;
+}
+
+/* Use flexbox to align labels and inputs horizontally */
+div {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Add spacing between labels and inputs */
+label {
+    margin-right: var(--spacing-sm);
+}
+
+/* Display radio buttons inline within the radio-group */
+radio-group div {
+    display: inline-block;
+}
+
+/* Prevent radio button labels from wrapping to a new line */
+#nowrap {
+    white-space: nowrap;
+}
+
+/* ============================================
+   INPUT FIELD STYLING
+   ============================================ */
+
+/* Style text inputs, email, phone, and select dropdowns */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+    flex: 1; /* Take up remaining space in flex container */
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* ============================================
+   INPUT FIELD STATES
+   Visual feedback for user interaction and validation
+   ============================================ */
+
+/* Blue border when field has focus (user is typing) */
+input[type="text"].focused,
+input[type="email"].focused,
+input[type="tel"].focused,
+input[type="password"].focused {
+    border: 2px solid var(--color-focus);
+    outline: none; /* Remove default browser outline */
+}
+
+/* Red border for fields with validation errors */
+input[type="text"].error,
+input[type="email"].error,
+input[type="tel"].error {
+    border: 2px solid var(--color-error);
+}
+
+/* Green border for fields that passed validation */
+input[type="text"].valid,
+input[type="email"].valid,
+input[type="tel"].valid {
+    border: 2px solid var(--color-success);
+}
+
+/* Purple focus for create account form */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: var(--color-purple);
+    box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
+    outline: none;
+}
+
+/* ============================================
+   ERROR MESSAGE STYLING
+   ============================================ */
+
+/* Style for error messages displayed next to invalid fields */
+span.error-message {
+    margin-left: var(--spacing-sm);
+    color: var(--color-error);
+    font-size: 0.9em; /* Slightly smaller than normal text */
+}
+
+/* ============================================
+   SUBMIT BUTTON STYLING
+   ============================================ */
+
+/* Style the submit button - default blue theme */
+input[type="submit"] {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-normal), transform var(--transition-fast);
+    font-size: 16px;
+}
+
+/* Darker blue on hover for visual feedback */
+input[type="submit"]:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* ============================================
+   LOGO STYLING
+   Shared logo styles for all pages
+   ============================================ */
+
+/* Set size for the logo container and position it absolutely */
+#logo {
+    display: block;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    position: absolute;
+    left: 2em;
+    top: var(--spacing-sm);
+    z-index: 20;
+}
+
+/* Style the SVG logo with border and rounded corners */
+#logo svg {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #000;
+    border-radius: var(--radius-logo);
+    display: block;
+}
+
+/* Change SVG fill color from black to beige using CSS */
+#logo svg rect {
+    fill: var(--color-beige);
+}
+
+/* ============================================
+   NAVIGATION STYLING
+   Shared navigation styles for all pages
+   ============================================ */
+
+/* Position navigation absolutely in the header */
+nav {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: 2em;
+    z-index: 20;
+}
+
+/* Display navigation items in a horizontal row with flexbox */
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: var(--spacing-sm);
+}
+
+/* Remove default list item margins */
+nav li {
+    margin: 0;
+}
+
+/* Style navigation links as dark buttons with white text */
+nav a {
+    display: block;
+    padding: 8px var(--spacing-md);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-normal);
+    font-size: 14px;
+}
+
+/* Blue background on hover for navigation links */
+nav a:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - SHARED
+   Mobile-friendly adjustments for all pages
+   ============================================ */
+
+/* Tablet and small desktop adjustments (768px and below) */
+@media (max-width: 768px) {
+    /* Adjust navigation positioning for smaller screens */
+    nav {
+        right: var(--spacing-sm);
+        left: auto;
+        top: var(--spacing-sm);
+    }
+    
+    /* Stack navigation vertically */
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    /* Smaller, centered navigation links */
+    nav a {
+        padding: 6px var(--spacing-sm);
+        font-size: 12px;
+        text-align: center;
+    }
+    
+    /* Reduce logo size */
+    #logo {
+        width: var(--logo-size-tablet);
+        height: var(--logo-size-tablet);
+        left: var(--spacing-sm);
+    }
+}
+
+/* Mobile adjustments (480px and below) */
+@media (max-width: 480px) {
+    /* Even smaller navigation links */
+    nav a {
+        padding: var(--spacing-xs) 8px;
+        font-size: 11px;
+    }
+    
+    /* Further reduce logo size */
+    #logo {
+        width: var(--logo-size-mobile);
+        height: var(--logo-size-mobile);
+    }
+}
+
+/* Form-specific responsive adjustments */
+@media (max-width: 600px) {
+    /* Stack labels above inputs on mobile */
+    div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Remove fixed width and adjust spacing for mobile */
+    label {
+        width: auto;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    /* Keep title radio buttons inline even on mobile */
+    radio-group label {
+        display: inline-block;
+        margin-right: var(--spacing-sm);
+    }
+    
+    /* Display span elements as block on mobile */
+    span {
+        display: block;
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+/* ============================================
+   CREATE ACCOUNT FORM (form.html)
+   Styling specific to the #createAccountForm page
+   Features gradient background, sparkle animation
+   ============================================ */
+
+/* Override body styling when the create account form page is loaded */
+body:has(#createAccountForm) {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    /* Soft gradient background from light blue to lavender */
+    background: linear-gradient(135deg, #f0f8ff, #e6e6fa);
+    /* Center content vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensure full viewport height */
+    min-height: 100vh;
+    /* Remove default body margin */
+    margin: 0;
+    /* Space for fixed header with logo */
+    padding-top: 100px;
+}
+
+/* Style the create account form with modern box design and sparkle effect */
+#createAccountForm {
+    /* Subtle gradient background for form container */
+    background: linear-gradient(145deg, var(--color-white), #f7f7f7);
+    /* Generous padding for form content */
+    padding: 25px;
+    /* Rounded corners for modern appearance */
+    border-radius: var(--radius-md);
+    /* Elevated shadow for depth */
+    box-shadow: var(--shadow-md);
+    /* Set fixed width with max-width for responsiveness */
+    width: 350px;
+    max-width: 90%;
+    /* Position relative for absolute child positioning */
+    position: relative;
+    /* Hide overflow to contain sparkle effect */
+    overflow: hidden;
+}
+
+/* Sparkle effect using pseudo-elements for create account form */
+#createAccountForm::before {
+    content: "";
+    /* Position absolutely within form container */
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    /* Oversized to cover entire container */
+    width: 200%;
+    height: 200%;
+    /* Repeating radial gradient pattern for sparkle dots */
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 10%),
+                radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 10%);
+    background-size: 50px 50px;
+    /* Slow infinite animation creates moving sparkle effect */
+    animation: sparkle 6s linear infinite;
+    /* Place behind form content */
+    z-index: 0;
+}
+
+/* Keyframes for continuous sparkle movement */
+@keyframes sparkle {
+    0% { 
+        transform: translate(0, 0); 
+    }
+    100% { 
+        transform: translate(50px, 50px); 
+    }
+}
+
+/* Ensure form content stays above sparkle effect */
+#createAccountForm * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Labels in create account form - block display with spacing */
+#createAccountForm label {
+    display: block;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: var(--spacing-xs);
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+/* Wrappers for label-input pairs */
+#createAccountForm div {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Input fields in create account form - full width */
+#createAccountForm input[type="text"],
+#createAccountForm input[type="email"],
+#createAccountForm input[type="password"] {
+    width: 100%;
+    padding: var(--spacing-sm);
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+    flex: none; /* Override flex from general styles */
+}
+
+/* Focus effect for create account form inputs */
+#createAccountForm input[type="text"]:focus,
+#createAccountForm input[type="email"]:focus,
+#createAccountForm input[type="password"]:focus {
+    border-color: var(--color-purple);
+    box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
+    outline: none;
+}
+
+/* Submit button for create account form */
+#createAccountForm input[type="submit"] {
+    width: 100%;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    background: linear-gradient(90deg, var(--color-purple), var(--color-purple-light));
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background var(--transition-slow), transform var(--transition-fast);
+}
+
+/* Hover effect for create account form submit button */
+#createAccountForm input[type="submit"]:hover {
+    background: linear-gradient(90deg, var(--color-purple-light), var(--color-purple));
+    transform: scale(1.05);
+}
+
+/* Adjust header positioning when create account form is present */
+body:has(#createAccountForm) header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-sm) 0;
+    margin-bottom: 0;
+}
+
+/* Responsive layout for create account form: labels horizontally aligned on large screens */
+@media (min-width: 768px) {
+    #createAccountForm {
+        width: 500px;
+    }
+    
+    #createAccountForm div {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    #createAccountForm label {
+        width: 30%;
+        text-align: right;
+        margin-right: var(--spacing-sm);
+        margin-bottom: 0;
+    }
+    
+    #createAccountForm input[type="text"],
+    #createAccountForm input[type="email"],
+    #createAccountForm input[type="password"] {
+        width: 65%;
+        flex: 1;
+    }
+}
+
+/* ============================================
+   FORMS INDEX PAGE (index.html)
+   Styles for the forms section documentation/home page
+   Features bordered sections, code display
+   ============================================ */
+
+/* Index page body styling - override default */
+body:has(main section) {
+    font-family: Arial, sans-serif;
+    margin: var(--spacing-lg);
+}
+
+/* Index page header - full width with negative margins */
+body:has(main section) header {
+    position: relative;
+    /* Negative margins extend header to viewport edges */
+    margin: calc(-1 * var(--spacing-lg)) calc(-1 * var(--spacing-lg)) var(--spacing-lg) calc(-1 * var(--spacing-lg));
+    padding: var(--spacing-sm) var(--spacing-lg);
+    min-height: var(--logo-size);
+}
+
+/* Index page h1 inside header - add top padding to clear logo */
+body:has(main section) header h1 {
+    margin-left: 0;
+    /* Push heading below fixed logo */
+    padding-top: var(--logo-size);
+}
+
+/* Main content area for index page */
+main {
+    padding-top: var(--spacing-lg);
+}
+
+/* Remove top margin from first h2 in main */
+main h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Section boxes with left border accent for index page */
+main section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 3px solid var(--color-primary);
+}
+
+/* Section headings */
+main section h3 {
+    margin-top: 0;
+}
+
+/* Section heading links - blue color matching theme */
+main section h3 a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* Underline links on hover for feedback */
+main section h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Section subheadings */
+main section h4 {
+    margin-top: 1rem;
+    color: var(--color-text);
+}
+
+/* List spacing in sections for readability */
+main section ul {
+    line-height: 1.6;
+}
+
+/* Code elements styling - inline code snippets */
+code {
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: var(--radius-xs);
+    font-family: 'Courier New', monospace;
+}
+
+/* Footer styling - centered with border */
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+/* Additional responsive adjustments for index page */
+@media (max-width: 768px) {
+    body:has(main section) header h1 {
+        padding-top: var(--logo-size-tablet);
+        font-size: 1.5em;
+        padding-right: var(--spacing-sm);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+/* ============================================
+   PHP CODE PAGE (form2.html)
+   Styles for the PHP code display page
+   Features dark code theme, description boxes
+   ============================================ */
+
+/* PHP code page body - clean gray background */
+body:has(.code-section) {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* PHP code page header - white with shadow */
+body:has(.code-section) header {
+    position: relative;
+    background-color: var(--color-white);
+    padding: var(--spacing-sm) 0;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* PHP code page main content area - centered with max width */
+body:has(.code-section) main {
+    max-width: 1200px;
+    margin: 120px auto var(--spacing-xl);
+    padding: 0 var(--spacing-lg);
+}
+
+/* PHP code page h1 - with bottom border accent */
+body:has(.code-section) h1 {
+    color: var(--color-text);
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Description boxes on PHP code page - blue info boxes */
+.description {
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-xs);
+    margin-top: var(--spacing-xl);
+}
+
+.description h2 {
+    margin-top: 0;
+    color: #1976d2;
+}
+
+.description ul {
+    margin-bottom: 0;
+}
+
+/* Code display blocks - dark Monokai theme */
+pre {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    line-height: 1.5;
+    box-shadow: var(--shadow-xs);
+}
+
+/* Override code element for PHP page to use monospace without background */
+body:has(.code-section) code {
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 14px;
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Code section containers */
+.code-section {
+    margin-bottom: 30px;
+}
+
+.code-section h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Syntax highlighting colors (Monokai theme) */
+.comment { color: #75715e; }
+.keyword { color: #f92672; }
+.string { color: #e6db74; }
+.function { color: #66d9ef; }
+.variable { color: #fd971f; }
+.tag { color: #f92672; }
+.attribute { color: #a6e22e; }
+
+/* PHP code page responsive adjustments */
+@media (max-width: 768px) {
+    body:has(.code-section) main {
+        margin-top: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    body:has(.code-section) pre {
+        padding: var(--spacing-sm);
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Site</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #111; line-height: 1.5; }
+    header, footer { text-align: center; margin-bottom: 1.5rem; }
+    nav > ul { list-style: disc inside; padding-left: 0; }
+    nav ul ul { list-style: circle inside; padding-left: 2rem; }
+    nav a { color: #0a66ff; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    section { margin-bottom: 1.25rem; }
+    #logo {
+                width: 6%;
+                margin: 20px auto;
+                position: absolute;
+                left: 2em;
+                top: -1em;
+            }
+    #logo svg {
+                border: 5px solid #000;
+                border-radius: 15px;
+                display: block;
+            }
+    #logo svg rect {
+                fill: #f5deb3;
+            }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <a href="#" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <mask id="cutout">
+              <rect x="0" y="0" width="200" height="200" fill="white"/>
+              <text 
+                x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                TB
+              </text>
+            </mask>
+          </defs>
+          <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+        </svg>
+      </a>
+    </div>
+    <h1>Web Development and Computer Principles</h1>
+    <p>My Course Portfolio</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Site pages</h2>
+      <p>Navigate to the example pages below:</p>
+      <nav>
+        <ul>
+          <li><a href="me/index.html">HTML</a>
+            <ul>
+              <li><a href="me/about.html">About Me</a></li>
+              <li><a href="me/css.html">CSS Examples</a></li>
+              <li><a href="me/experience.html">Experience</a></li>
+              <li><a href="me/interests.html">Interests</a></li>
+            </ul>
+          </li>
+          <li><a href="midterm/index.html">Midterm revision site</a>
+            <ul>
+              <li><a href="midterm/about-us.html">About Us</a></li>
+              <li><a href="midterm/contact.html">Contact</a></li>
+            </ul>
+          </li>
+          <li><a href="raster-graphics/index.html">Raster Graphics</a></li>
+          <li><a href="vector-graphics/index.html">Vector Graphics</a></li>
+          <li><a href="javascript/index.html">JavaScript</a>
+             <ul>
+               <li><a href="javascript/js-site.html">JavaScript Class Example site</a>
+                 <ul>
+                   <li><a href="javascript/real.html">Real Articles</a></li>
+                   <li><a href="javascript/fake.html">Fictional Articles</a></li>
+                 </ul>
+               </li>
+               <li><a href="javascript/javascript-presentation.html">JavaScript Class Presentation code</a></li>
+               <li><a href="javascript/event-bubbling.html">Event Bubbling</a></li>
+             </ul>
+          </li>
+          <li><a href="av/index.html">Audio &amp; Video</a>
+             <ul>
+              <li><a href="av/audio.html">Audio Example</a></li>
+              <li><a href="av/video.html">Video Example</a></li>
+               <li><a href="av/video_responsive.html">Video Responsive Example</a></li>
+            </ul>
+          </li>
+          <li><a href="forms/index.html">Forms</a>
+            <ul>
+              <li><a href="forms/form.html">Simple form with JS Validation</a></li>
+              <li><a href="forms/form-demo.html">Advanced form in class example</a></li>
+              <li><a href="forms/form2.html">PHP Form Example</a></li>
+            </ul>
+          </li>          
+        </ul>
+      </nav>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NYU London</p>
+  </footer>
+</body>
+</html>

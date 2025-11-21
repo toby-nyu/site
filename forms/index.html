@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML Forms Examples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML form demonstrations including validation, styling, and user input handling">
+    <link rel="stylesheet" href="../css/forms.css">
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <a href="../index.html" title="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <mask id="cutout">
+                <rect x="0" y="0" width="200" height="200" fill="white"/>
+                <text 
+                  x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                  TB
+                </text>
+              </mask>
+            </defs>
+            <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+          </svg>
+        </a>
+      </div>
+      <div>
+        <h1>HTML Forms Examples</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Forms Home</a></li>
+          <li><a href="form-demo.html">Form Demo</a></li>
+          <li><a href="form.html">Validated Form</a></li>
+          <li><a href="form2.html">PHP Code</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>About This Section</h2>
+      <p>This section demonstrates HTML form creation, styling, validation, and user input handling using both client-side and server-side techniques.</p>
+
+      <section>
+        <h3><a href="form-demo.html">Comprehensive Form Demo</a></h3>
+        <p>This page showcases a complete sign-up form with multiple input types, organized using fieldsets and enhanced with JavaScript validation and comprehensive user feedback. <strong>This example includes extensive comments in the HTML, CSS, and JavaScript files to help you understand how everything works together.</strong></p>
+        
+        <h4>File Structure:</h4>
+        <ul>
+          <li><strong>HTML:</strong> <code>forms/form-demo.html</code> - Fully commented HTML structure</li>
+          <li><strong>CSS:</strong> <code>css/forms.css</code> - Organized with section headers and detailed comments</li>
+          <li><strong>JavaScript:</strong> <code>js/form-demo.js</code> - Extensively commented validation logic</li>
+          <li><strong>PHP:</strong> <code>form2.php</code> (external server) - Processes and displays submitted data</li>
+        </ul>
+        
+        <h4>How It Works:</h4>
+        <p><strong>Client-Side (Browser):</strong></p>
+        <ul>
+          <li>User fills out the form fields (title, name, email, phone, preferences)</li>
+          <li>JavaScript validates data when user clicks Submit</li>
+          <li>Invalid fields show red borders with error messages</li>
+          <li>Valid fields show green borders</li>
+          <li>Focus states show blue borders for better UX</li>
+          <li>If validation passes, form data is sent to the server</li>
+        </ul>
+        
+        <p><strong>Server-Side (PHP):</strong></p>
+        <ul>
+          <li>Form submits via POST to <code>https://tobibrodie.co.uk/nyu/form2.php</code></li>
+          <li>PHP script receives the form data</li>
+          <li>Data is sanitized using <code>htmlspecialchars()</code> to prevent XSS attacks</li>
+          <li>Script displays a success page showing all submitted data</li>
+          <li>The PHP file handles both this form (8 fields) and the simple form (3 fields)</li>
+        </ul>
+        
+        <h4>Key Form Techniques:</h4>
+        <ul>
+          <li><strong>Form Structure:</strong> Uses <code>&lt;form&gt;</code> element with <code>action</code> pointing to external PHP and <code>method="post"</code></li>
+          <li><strong>Fieldsets and Legends:</strong> Groups related form controls using <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> for better organization</li>
+          <li><strong>Radio Buttons:</strong> Multiple radio inputs with the same <code>name</code> attribute for single selection (title selection)</li>
+          <li><strong>Dynamic Input Creation:</strong> JavaScript creates a text input when "Other" title is selected</li>
+          <li><strong>Text Inputs:</strong> Standard <code>&lt;input type="text"&gt;</code> for name fields with minimum length validation</li>
+          <li><strong>Email and Tel Inputs:</strong> HTML5 input types for better mobile keyboards, validated with regex patterns</li>
+          <li><strong>Select Dropdown:</strong> <code>&lt;select&gt;</code> element with <code>&lt;option&gt;</code> elements for preferred contact method</li>
+          <li><strong>Checkbox Input:</strong> <code>&lt;input type="checkbox"&gt;</code> for newsletter subscription (optional field)</li>
+          <li><strong>Labels:</strong> Proper <code>&lt;label&gt;</code> elements with <code>for</code> attribute linked to input <code>id</code> for accessibility</li>
+        </ul>
+        
+        <h4>JavaScript Validation Features:</h4>
+        <ul>
+          <li><strong>Configuration-Driven:</strong> Validation rules defined in a reusable object structure</li>
+          <li><strong>Field Mapping:</strong> User-friendly error messages using a field name mapping object</li>
+          <li><strong>Required Fields:</strong> Checks all fields except newsletter and otherTitle</li>
+          <li><strong>Minimum Length:</strong> Forename and surname must be at least 2 characters</li>
+          <li><strong>Email Pattern:</strong> Validates email format (requires @ and 2+ character domain extension)</li>
+          <li><strong>Phone Pattern:</strong> Allows digits, spaces, +, -, and () with minimum 7 characters</li>
+          <li><strong>Visual Feedback:</strong> CSS classes for focused (.focused), error (.error), and valid (.valid) states</li>
+          <li><strong>Auto-Focus:</strong> Automatically focuses and scrolls to the first error field</li>
+          <li><strong>Error Prevention:</strong> Removes errors when user focuses on a field to re-enter data</li>
+        </ul>
+        
+        <h4>CSS Styling Highlights:</h4>
+        <ul>
+          <li><strong>Flexbox Layout:</strong> Labels and inputs aligned horizontally using flexbox</li>
+          <li><strong>Color-Coded States:</strong> Blue for focus (#2196f3), red for errors (#f44336), green for valid (#4caf50)</li>
+          <li><strong>Responsive Design:</strong> Stacks vertically on mobile screens (600px breakpoint)</li>
+          <li><strong>SVG Logo Styling:</strong> Uses CSS to change SVG fill color and add borders</li>
+          <li><strong>Smooth Transitions:</strong> Hover effects on buttons and navigation links</li>
+        </ul>
+        
+        <h4>Learning Resources:</h4>
+        <p><strong>To understand this example fully, review the comments in:</strong></p>
+        <ol>
+          <li><code>form-demo.html</code> - See how form elements are structured and connected</li>
+          <li><code>forms.css</code> - Learn about the three-state styling system and responsive design</li>
+          <li><code>form-demo.js</code> - Understand the validation flow from user input to error display</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3><a href="form.html">Client-Side Validated Form</a></h3>
+        <p>This page demonstrates a streamlined account creation form with JavaScript validation to ensure data quality before submission.</p>
+        <h4>Techniques Used:</h4>
+        <ul>
+          <li><strong>Simple Form Structure:</strong> Minimal three-field form (name, email, password) for account creation</li>
+          <li><strong>Password Input:</strong> <code>&lt;input type="password"&gt;</code> for secure password entry with masked characters</li>
+          <li><strong>Client-Side Validation:</strong> JavaScript validation using <code>validate.js</code> before form submission</li>
+          <li><strong>Form Action:</strong> Server-side processing endpoint (<code>https://tobibrodie.co.uk/form.php</code>)</li>
+          <li><strong>Input Validation Patterns:</strong> Checks for empty fields, valid email format, and password requirements</li>
+          <li><strong>Error Messaging:</strong> User feedback for validation failures</li>
+          <li><strong>Event Prevention:</strong> Uses <code>preventDefault()</code> to stop submission if validation fails</li>
+          <li><strong>Clean Design:</strong> Minimalist styling focused on usability</li>
+          <li><strong>Accessible Forms:</strong> Proper label-input associations for screen readers</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3><a href="form2.html">PHP Server-Side Code</a></h3>
+        <p>This page displays the complete PHP code used to process form submissions on the external server. This is a learning resource that shows you the server-side code without actually running it.</p>
+        
+        <h4>What You'll Learn:</h4>
+        <ul>
+          <li><strong>Server-Side Processing:</strong> How PHP receives and handles form data submitted via POST</li>
+          <li><strong>Security Best Practices:</strong> Using <code>htmlspecialchars()</code> to sanitize user input and prevent XSS attacks</li>
+          <li><strong>Data Validation:</strong> Checking if form was submitted and handling missing fields</li>
+          <li><strong>Conditional Rendering:</strong> Using PHP to display different HTML based on whether data was submitted</li>
+          <li><strong>Superglobals:</strong> Understanding <code>$_SERVER</code> and <code>$_POST</code> arrays</li>
+          <li><strong>Null Coalescing:</strong> Using the <code>??</code> operator to provide default values</li>
+        </ul>
+        
+        <h4>PHP Features Demonstrated:</h4>
+        <ul>
+          <li><code>$_SERVER['REQUEST_METHOD']</code> - Detects form submission method</li>
+          <li><code>$_POST['fieldname']</code> - Retrieves form field values</li>
+          <li><code>htmlspecialchars()</code> - Sanitizes data to prevent malicious code injection</li>
+          <li><code>isset()</code> - Checks if checkbox or optional fields were submitted</li>
+          <li><code>ucfirst()</code> - Capitalizes first letter for display formatting</li>
+          <li>PHP conditional statements - Controls what HTML is rendered</li>
+          <li>Inline CSS - All styling contained within the PHP file</li>
+        </ul>
+        
+        <h4>Why This Matters:</h4>
+        <p>While client-side JavaScript validation improves user experience, server-side validation with PHP is essential for security. Users can bypass JavaScript validation, so the server must always verify and sanitize data before processing or storing it. This page shows you both the validation logic and the success page that users see after form submission.</p>
+      </section>
+
+      <section>
+        <h3>Key Learning Outcomes</h3>
+        <ul>
+          <li>Understand HTML form structure with <code>&lt;form&gt;</code>, <code>action</code>, and <code>method</code> attributes</li>
+          <li>Use semantic grouping with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements</li>
+          <li>Implement various input types: text, email, tel, password, radio, checkbox, select</li>
+          <li>Create accessible forms with properly linked <code>&lt;label&gt;</code> elements</li>
+          <li>Apply client-side validation using JavaScript for immediate user feedback</li>
+          <li>Understand the difference between <code>GET</code> and <code>POST</code> methods</li>
+          <li>Style forms with external CSS for consistent presentation</li>
+          <li>Use HTML5 input types for enhanced mobile user experience</li>
+          <li>Prevent form submission with <code>preventDefault()</code> when validation fails</li>
+          <li>Implement radio button groups for mutually exclusive options</li>
+          <li>Create dropdown menus with <code>&lt;select&gt;</code> and <code>&lt;option&gt;</code></li>
+          <li>Handle form data submission to server-side endpoints</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 NYU London - Web Design & Computer Principles</p>
+    </footer>
+  </body>
+</html>

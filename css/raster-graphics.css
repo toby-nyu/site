@@ -1,0 +1,57 @@
+/* ============================================
+   RASTER-GRAPHICS SECTION STYLES
+   ============================================ */
+
+/* Base layout with background image */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../media/bg.jpg');
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* Heading and paragraph styling with text shadow for contrast */
+h1,
+p {
+    text-shadow: 5px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 20px;
+    z-index: 1;
+    margin: 1em 4em;
+}
+
+p {
+    font-size: 1.6em;
+}
+
+/* Fixed foreground image at bottom */
+img {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    max-width: 100%;
+    z-index: -1;
+}
+
+/* Logo styling */
+#logo {
+    width: 6%;
+    margin: 20px auto;
+    position: absolute;
+    left: 2em;
+    top: -1em;
+}
+
+#logo svg {
+    border: 5px solid #000;
+    border-radius: 15px;
+    display: block;
+}
+
+#logo svg rect {
+    fill: #f5deb3;
+}

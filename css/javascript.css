@@ -1,0 +1,333 @@
+/* ============================================
+   JAVASCRIPT SECTION STYLES
+   Combined CSS for index.html, event-bubbling.html, 
+   and javascript-presentation.html
+   ============================================ */
+
+/* ============================================
+   BASE STYLES - Shared across all pages
+   ============================================ */
+
+/* Logo styling */
+#logo {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 2em;
+    top: 10px;
+    z-index: 20;
+}
+
+#logo svg {
+    border: 5px solid #000;
+    border-radius: 15px;
+    display: block;
+}
+
+#logo svg rect {
+    fill: #f5deb3;
+}
+
+/* Navigation styling */
+nav {
+    position: absolute;
+    top: 10px;
+    right: 2em;
+    z-index: 20;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 8px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+nav a:hover {
+    background-color: rgba(0, 115, 230, 0.9);
+}
+
+/* ============================================
+   INDEX.HTML SPECIFIC STYLES
+   ============================================ */
+
+body:has(main section) {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+body:has(main section) header {
+    position: relative;
+    margin: -20px -20px 20px -20px;
+    padding: 10px 20px;
+    min-height: 80px;
+}
+
+body:has(main section) header h1 {
+    margin-left: 0;
+    padding-top: 80px;
+}
+
+body:has(main section) main {
+    padding-top: 20px;
+}
+
+body:has(main section) main h2:first-of-type {
+    margin-top: 0;
+}
+
+body:has(main section) section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 3px solid #0073e6;
+}
+
+body:has(main section) section h3 {
+    margin-top: 0;
+}
+
+body:has(main section) section h3 a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+body:has(main section) section h3 a:hover {
+    text-decoration: underline;
+}
+
+body:has(main section) section h4 {
+    margin-top: 1rem;
+    color: #333;
+}
+
+body:has(main section) section ul {
+    line-height: 1.6;
+}
+
+body:has(main section) code {
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+body:has(main section) footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+/* ============================================
+   EVENT-BUBBLING.HTML SPECIFIC STYLES
+   ============================================ */
+
+body:has(#bubbling-section) {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding-top: 100px;
+}
+
+body:has(#bubbling-section) section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 2px solid #333;
+}
+
+/* Event flow explanation section */
+body:has(#bubbling-section) section[style],
+body:has(#bubbling-section) .event-flow-section {
+    border: 2px solid #333;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Pre/code blocks in event-bubbling */
+body:has(#bubbling-section) pre {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+body:has(#bubbling-section) .parent {
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+body:has(#bubbling-section) .child {
+    padding: 20px;
+    background-color: #d0eaff;
+    margin-top: 10px;
+}
+
+body:has(#bubbling-section) button {
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+body:has(#bubbling-section) h2 {
+    margin-top: 0;
+}
+
+/* ============================================
+   JAVASCRIPT-PRESENTATION.HTML SPECIFIC STYLES
+   ============================================ */
+
+body:has(.event-section) {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+body:has(.event-section) h1 {
+    color: #333;
+}
+
+.event-section {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+body:has(.event-section) #logo {
+    width: 6%;
+    margin: 20px auto;
+    position: absolute;
+    left: 2em;
+    top: -1em;
+}
+
+#btn:hover {
+    background-color: #0056b3;
+}
+
+#canvas {
+    width: 100%;
+    height: 200px;
+    border: 2px solid #333;
+    background-color: #f0f0f0;
+    cursor: crosshair;
+}
+
+#drag {
+    width: 100px;
+    height: 100px;
+    background-color: #28a745;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    border-radius: 4px;
+    user-select: none;
+}
+
+#drag:active {
+    cursor: grabbing;
+}
+
+body:has(.event-section) form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body:has(.event-section) input[type="text"],
+body:has(.event-section) input[type="email"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+body:has(.event-section) input[type="submit"] {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+body:has(.event-section) input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    nav {
+        right: 10px;
+        left: auto;
+        top: 10px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    nav a {
+        padding: 6px 10px;
+        font-size: 12px;
+        text-align: center;
+    }
+    
+    #logo {
+        width: 60px;
+        height: 60px;
+        left: 10px;
+    }
+    
+    body:has(main section) header h1 {
+        padding-top: 60px;
+        font-size: 1.5em;
+        padding-right: 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+    
+    #logo {
+        width: 50px;
+        height: 50px;
+    }
+}

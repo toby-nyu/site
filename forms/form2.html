@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Server-Side Code</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="../index.html" title="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <mask id="cutout">
+                            <rect x="0" y="0" width="200" height="200" fill="white"/>
+                            <text 
+                                x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                                font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                                TB
+                            </text>
+                        </mask>
+                    </defs>
+                    <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+                </svg>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Forms Home</a></li>
+                <li><a href="form-demo.html">Form Demo</a></li>
+                <li><a href="form.html">Validated Form</a></li>
+                <li><a href="form2.html">PHP Code</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Server-Side PHP Code (form2.php)</h1>
+
+        <div class="description">
+            <h2>How This Server-Side Script Works</h2>
+            <p>This PHP script is hosted on an external server at <code>https://tobibrodie.co.uk/nyu/form2.php</code>. When you submit the form-demo.html or form.html forms, the data is sent to this script, which processes and displays it back to the user.</p>
+            <p><strong>Key Concepts:</strong></p>
+            <ul>
+                <li><strong>POST Method:</strong> Form data is sent securely using HTTP POST</li>
+                <li><strong>Data Sanitization:</strong> <code>htmlspecialchars()</code> prevents Cross-Site Scripting (XSS) attacks</li>
+                <li><strong>Conditional Display:</strong> Only shows fields that were actually submitted</li>
+                <li><strong>Security:</strong> Passwords are masked and never displayed in plain text</li>
+                <li><strong>Responsive Design:</strong> Uses inline CSS to style the success page</li>
+            </ul>
+        </div>
+
+        <div class="code-section">
+            <h3>Complete PHP Code</h3>
+            <pre><code>&lt;?php
+// Enable error reporting for debugging (remove in production)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Check if form was submitted
+$formSubmitted = $_SERVER['REQUEST_METHOD'] === 'POST';
+
+// Sanitize and retrieve form data if submitted
+$formData = [];
+if ($formSubmitted) {
+    $formData = [
+        'title' => htmlspecialchars($_POST['title'] ?? ''),
+        'forename' => htmlspecialchars($_POST['forename'] ?? ''),
+        'surname' => htmlspecialchars($_POST['surname'] ?? ''),
+        'email' => htmlspecialchars($_POST['email'] ?? ''),
+        'phone' => htmlspecialchars($_POST['phone'] ?? ''),
+        'contactMethod' => htmlspecialchars($_POST['contactMethod'] ?? ''),
+        'newsletter' => isset($_POST['newsletter']) ? 'Yes' : 'No',
+        // Also handle simple form fields if submitted from form.html
+        'name' => htmlspecialchars($_POST['name'] ?? ''),
+        'password' => '****' // Don't display actual password for security
+    ];
+}
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Form Submission Result&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .success-icon svg {
+            fill: #4caf50;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .data-section {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .data-section h2 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .data-row {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-row:last-child {
+            border-bottom: none;
+        }
+
+        .data-label {
+            font-weight: bold;
+            color: #555;
+            width: 150px;
+            flex-shrink: 0;
+        }
+
+        .data-value {
+            color: #333;
+            flex-grow: 1;
+            word-break: break-word;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .empty-state svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .info-box strong {
+            color: #1976d2;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .data-row {
+                flex-direction: column;
+            }
+
+            .data-label {
+                margin-bottom: 5px;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;?php if ($formSubmitted && (!empty($formData['name']) || !empty($formData['forename']))): ?&gt;
+            &lt;!-- Success State --&gt;
+            &lt;svg class="success-icon" viewBox="0 0 24 24"&gt;
+                &lt;path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" /&gt;
+            &lt;/svg&gt;
+            
+            &lt;h1&gt;Form Submitted Successfully!&lt;/h1&gt;
+            &lt;p class="subtitle"&gt;Thank you for submitting the form. Here's the data we received:&lt;/p&gt;
+            
+            &lt;div class="data-section"&gt;
+                &lt;h2&gt;Submitted Information&lt;/h2&gt;
+                
+                &lt;?php if (!empty($formData['title'])): ?&gt;
+                &lt;div class="data-row"&gt;
+                    &lt;span class="data-label"&gt;Title:&lt;/span&gt;
+                    &lt;span class="data-value"&gt;&lt;?php echo ucfirst($formData['title']); ?&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;?php endif; ?&gt;
+                
+                &lt;?php if (!empty($formData['forename'])): ?&gt;
+                &lt;div class="data-row"&gt;
+                    &lt;span class="data-label"&gt;First Name:&lt;/span&gt;
+                    &lt;span class="data-value"&gt;&lt;?php echo $formData['forename']; ?&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;?php endif; ?&gt;
+                
+                &lt;?php if (!empty($formData['surname'])): ?&gt;
+                &lt;div class="data-row"&gt;
+                    &lt;span class="data-label"&gt;Last Name:&lt;/span&gt;
+                    &lt;span class="data-value"&gt;&lt;?php echo $formData['surname']; ?&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;?php endif; ?&gt;
+                
+                &lt;?php if (!empty($formData['name'])): ?&gt;
+                &lt;div class="data-row"&gt;
+                    &lt;span class="data-label"&gt;Name:&lt;/span&gt;
+                    &lt;span class="data-value"&gt;&lt;?php echo $formData['name']; ?&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;?php endif; ?&gt;
+                
+                &lt;?php if (!empty($formData['email'])): ?&gt;
+                &lt;div class="data-row"&gt;
+                    &lt;span class="data-label"&gt;Email:&lt;/span&gt;
+                    &lt;span class="data-value"&gt;&lt;?php echo $formData['email']; ?&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;?php endif; ?&gt;
+                
+                &lt;?php if (!empty($formData['phone'])): ?&gt;
+                &lt;div class="data-row"&gt;
+                    &lt;span class="data-label"&gt;Phone:&lt;/span&gt;
+                    &lt;span class="data-value"&gt;&lt;?php echo $formData['phone']; ?&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;?php endif; ?&gt;
+                
+                &lt;?php if (!empty($formData['contactMethod'])): ?&gt;
+                &lt;div class="data-row"&gt;
+                    &lt;span class="data-label"&gt;Preferred Contact:&lt;/span&gt;
+                    &lt;span class="data-value"&gt;&lt;?php echo ucfirst($formData['contactMethod']); ?&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;?php endif; ?&gt;
+                
+                &lt;?php if (isset($_POST['newsletter'])): ?&gt;
+                &lt;div class="data-row"&gt;
+                    &lt;span class="data-label"&gt;Newsletter:&lt;/span&gt;
+                    &lt;span class="data-value"&gt;&lt;?php echo $formData['newsletter']; ?&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;?php endif; ?&gt;
+            &lt;/div&gt;
+
+            &lt;div class="info-box"&gt;
+                &lt;strong&gt;Note:&lt;/strong&gt; In a real application, this data would be securely stored in a database, and passwords would be hashed before storage. This is a demonstration page for educational purposes.
+            &lt;/div&gt;
+
+            &lt;a href="javascript:history.back()" class="btn"&gt;Go Back to Form&lt;/a&gt;
+            
+        &lt;?php else: ?&gt;
+            &lt;!-- Empty State --&gt;
+            &lt;div class="empty-state"&gt;
+                &lt;svg viewBox="0 0 24 24"&gt;
+                    &lt;path fill="#ccc" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /&gt;
+                &lt;/svg&gt;
+                &lt;h1&gt;No Form Data&lt;/h1&gt;
+                &lt;p class="subtitle"&gt;This page displays form submission results. Please submit a form to see the data here.&lt;/p&gt;
+                &lt;a href="javascript:history.back()" class="btn"&gt;Go Back&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;?php endif; ?&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <div class="description">
+            <h2>Key PHP Concepts Demonstrated</h2>
+            <ul>
+                <li><strong>$_SERVER['REQUEST_METHOD']:</strong> Checks if the form was submitted via POST</li>
+                <li><strong>$_POST superglobal:</strong> Accesses form data sent from the client</li>
+                <li><strong>Null coalescing operator (??):</strong> Provides default value if field is missing</li>
+                <li><strong>htmlspecialchars():</strong> Converts special characters to HTML entities to prevent XSS</li>
+                <li><strong>isset():</strong> Checks if checkbox was selected</li>
+                <li><strong>Conditional rendering:</strong> PHP if statements control what HTML is displayed</li>
+                <li><strong>ucfirst():</strong> Capitalizes first letter of strings for display</li>
+                <li><strong>Inline CSS:</strong> All styles contained in the PHP file for portability</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

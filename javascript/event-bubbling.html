@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Event Bubbling Demo</title>
+    <link rel="stylesheet" href="../css/javascript.css">
+</head>
+<body>
+    <div id="logo">
+        <a href="../index.html" title="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <mask id="cutout">
+                        <rect x="0" y="0" width="200" height="200" fill="white"/>
+                        <text 
+                            x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                            font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                            TB
+                        </text>
+                    </mask>
+                </defs>
+                <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+            </svg>
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">JavaScript Home</a></li>
+            <li><a href="javascript-presentation.html">Events Demo</a></li>
+            <li><a href="js-site.html">Multi-Page Site</a></li>
+            <li><a href="event-bubbling.html">Event Bubbling</a></li>
+        </ul>
+    </nav>
+    <h1>Event Bubbling and Propagation Control</h1>
+    <p>This demo shows two sections: one where event bubbling occurs normally, and one where bubbling is stopped. It also explains the three phases: <strong>capturing → target → bubbling</strong>.</p>
+
+    <section id='bubbling-section'>
+        <h2>Section 1: Bubbling Enabled</h2>
+        <p>Click the button below. Both the button and its parent will react because the event bubbles up.</p>
+        <div class='parent' id='parent1'>
+            Parent DIV
+            <div class='child'>
+                <button id='btn1'>Click Me (Bubbling)</button>
+            </div>
+        </div>
+    </section>
+
+    <section id='stop-section'>
+        <h2>Section 2: Bubbling Stopped</h2>
+        <p>Click the button below. Only the button reacts because we use <code>stopPropagation()</code> to prevent bubbling.</p>
+        <div class='parent' id='parent2'>
+            Parent DIV
+            <div class='child'>
+                <button id='btn2'>Click Me (No Bubbling)</button>
+            </div>
+        </div>
+    </section>
+
+   <section class="event-flow-section">
+    <h2>Understanding Event Flow: Capture → Target → Bubble</h2>
+    <p>
+        When an event occurs (like a click), the browser processes it in <strong>three phases</strong>:
+    </p>
+
+    <h3>1. Capturing Phase</h3>
+    <p>
+        The event starts at the <strong>root of the DOM</strong> (e.g., <code>document</code>) and travels <em>downward</em> toward the target element.
+        If you add an event listener with <code>{ capture: true }</code>, it will fire during this phase.
+    </p>
+    <pre>
+parent.addEventListener('click', handler, true); // capture phase
+    </pre>
+
+    <h3>2. Target Phase</h3>
+    <p>
+        The event reaches the <strong>element that was actually clicked</strong> (or triggered).
+        All listeners on the target element fire here (regardless of capture or bubble).
+    </p>
+
+    <h3>3. Bubbling Phase</h3>
+    <p>
+        After the target phase, the event travels <em>upward</em> from the target element back to the root.
+        This is the default phase for most event listeners (when <code>capture</code> is not set).
+    </p>
+    <pre>
+parent.addEventListener('click', handler); // bubbling phase
+    </pre>
+
+    <h3>Why is Bubbling Useful?</h3>
+    <p>
+        Bubbling enables <strong>event delegation</strong>: Instead of adding listeners to many child elements, you can add one listener to a parent and handle all child clicks.
+    </p>
+    <pre>
+document.querySelector('#list').addEventListener('click', (e) => {
+    if(e.target.tagName === 'LI'){
+        console.log('List item clicked:', e.target.textContent);
+    }
+});
+    </pre>
+
+    <h3>When to Stop Bubbling</h3>
+    <p>
+        Use <code>e.stopPropagation()</code> if parent handlers cause unwanted behavior or you need isolated actions.
+        Use <code>e.stopImmediatePropagation()</code> to stop <em>all handlers</em> on the same element.
+        <strong>Warning:</strong> Overusing these can break delegation patterns.
+    </p>
+    <pre>
+btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent bubbling
+});
+    </pre>
+
+    <h3>Debugging Tip</h3>
+    <p>
+        Log <code>e.target</code> (the element that triggered the event) and <code>e.currentTarget</code> (the element whose listener is running) to understand event flow:
+    </p>
+    <pre>
+console.log('target:', e.target, 'currentTarget:', e.currentTarget);
+    </pre>
+</section>
+    <script src='../js/bubbling-demo.js'></script>
+</body>
+</html>

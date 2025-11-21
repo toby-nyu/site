@@ -1,0 +1,186 @@
+
+/* Font Styling */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: #fcfcfc;
+  color: #333;
+  margin: 20px auto;
+  max-width: 80%;
+  padding: 0;
+  letter-spacing: 0.5px;
+}
+
+
+header div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 1em;
+}
+header img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+
+h1, h2 {
+  font-family: 'Georgia', serif;
+  color: #2c3e50;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+header nav{
+  background-color: #70a3ca;
+  padding: 1em 1.5em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+#logo {
+                width: 6%;
+                margin: 20px auto;
+                position: absolute;
+                left: 2em;
+                top: -1em;
+            }
+#logo svg {
+                border: 5px solid #000;
+                border-radius: 15px;
+                display: block;
+            }
+#logo svg rect {
+                fill: #f5deb3;
+            }
+/* Link States */
+a{
+  background-color: rgb(255, 255, 255);
+}
+nav #current a{
+  background-color: #06172c;
+  color: white;
+
+}
+
+
+a:link {
+  color: #1e90ff;
+  text-decoration: none;
+}
+a:visited {
+  color: #8a2be2;
+}
+nav a:hover {
+  color: #5308b4;
+  text-decoration: underline;
+}
+a:active {
+  color: #dc143c;
+}
+
+/* Anchor Links */
+
+
+/* Box Model and Layout */
+main {
+  background-color: #ffffff;
+
+  border: 2px solid #ccc;
+  padding: 20px;
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Class Styling */
+.highlight {
+  background-color: #ffffcc;
+  padding: 10px;
+  border-left: 5px solid #ffcc00;
+}
+
+.note {
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-left: 5px solid #00acc1;
+}
+
+/* ID Styling */
+#intro {
+  color: darkgreen;
+  font-size: 24px;
+}
+
+/* Flexbox Navigation */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  justify-content: space-between;
+  /*background-color: #d9d9da;*/
+  margin: 0;
+}
+
+nav ul li {
+  /*color: rgb(94, 47, 47);*/
+  width: 100%;
+  border: 3pt solid #d3e0f3;
+  border-radius: 6%;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+header nav ul li a {
+
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+nav ul li a:hover {
+  background-color: #5c5c5c;
+  color: white;
+  border-radius: 5px;
+}
+
+section section{
+  margin: 3em 0px;
+  padding: 4em 2em;
+  border-bottom: 1px solid #ccc;
+  background-color: #f8f7f7;
+  border-radius: 1%;
+
+
+  } 
+
+main nav ul li a{
+  font-weight: normal;
+  letter-spacing: 0em;
+  color:red
+}
+
+
+section section img {
+  float: right;
+  display: block;
+  margin-left: 6em;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  width: 200px;
+  object-fit: cover;
+}
+
+p{
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
