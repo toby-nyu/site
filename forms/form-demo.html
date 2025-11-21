@@ -6,8 +6,6 @@
         <title>Form Demo</title>
         <!-- Link to external CSS file for styling -->
         <link rel="stylesheet" href="../css/forms.css">
-        <!-- Link to external JavaScript file for form validation -->
-        <script src="../js/form-demo.js"></script>
     </head>
     <body>
     <!-- Header section with logo and navigation -->
@@ -52,41 +50,41 @@
         <!-- Fieldset groups related form fields together -->
         <fieldset>
             <legend>Personal Information</legend>
-            <!-- Custom radio-group element for title selection -->
-            <radio-group>
+            <!-- Container div for title radio button group -->
+            <div class="radio-group">
                 <span>Title</span>
-                <!-- Each radio button is wrapped in a div with id="nowrap" to keep label and input together -->
-                <div id="nowrap">
+                <!-- Each radio button is wrapped in a div with class="nowrap" to keep label and input together -->
+                <div class="nowrap">
                     <input type="radio" id="mr" name="title" value="mr">
                     <label for="mr">Mr</label>
                 </div>
-                <div id="nowrap">
+                <div class="nowrap">
                     <input type="radio" id="miss" name="title" value="miss">
                     <label for="miss">Miss</label>
                 </div>
-                <div id="nowrap">
+                <div class="nowrap">
                     <input type="radio" id="ms" name="title" value="ms">
                     <label for="ms">Ms</label>
                 </div>
-                <div id="nowrap">
+                <div class="nowrap">
                     <input type="radio" id="mrs" name="title" value="mrs">
                     <label for="mrs">Mrs</label>
                 </div>
-                <div id="nowrap">
+                <div class="nowrap">
                     <input type="radio" id="dr" name="title" value="dr">
                     <label for="dr">Dr</label>
                 </div>
-                <div id="nowrap">
+                <div class="nowrap">
                     <!-- "Other" triggers JavaScript to create a text input -->
                     <input type="radio" id="other" name="title" value="other" >
                     <label for="other">Other</label>
                 </div>
-                <div id="nowrap">
+                <div class="nowrap">
                     <!-- "None" is checked by default -->
                     <input type="radio" id="none" name="title" value="none" checked>
                     <label for="none">None</label>
                 </div>
-            </radio-group>
+            </div>
             <!-- Text input for first name -->
             <div>
                 <label for="forename">First Name</label>
@@ -138,5 +136,7 @@
         <input type="submit" value="Submit">
     </form>
     
+    <!-- Link to external JavaScript file for form validation -->
+    <script src="../js/form-demo.js"></script>
     </body>
 </html>

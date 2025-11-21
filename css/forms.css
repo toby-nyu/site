@@ -113,12 +113,12 @@ label {
 }
 
 /* Display radio buttons inline within the radio-group */
-radio-group div {
+.radio-group div {
     display: inline-block;
 }
 
 /* Prevent radio button labels from wrapping to a new line */
-#nowrap {
+.nowrap {
     white-space: nowrap;
 }
 
@@ -349,7 +349,7 @@ header nav a:hover {
     }
 
     /* Keep title radio buttons inline even on mobile */
-    radio-group label {
+    .radio-group label {
         display: inline-block;
         margin-right: var(--spacing-sm);
     }
