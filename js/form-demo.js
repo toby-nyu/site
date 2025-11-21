@@ -61,15 +61,15 @@ window.onload = function() {
         function clearErrors() {
             // Remove all error message spans
             document.querySelectorAll('form span.error-message').forEach(span => span.remove());
-            // Remove error and valid classes from all input fields
-            document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]')
+            // Remove error and valid classes from all input fields including dynamic otherTitle
+            document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], #other-title-input')
                 .forEach(input => input.classList.remove('error', 'valid'));
         }
 
         // Mark valid fields with green border after successful validation
         // Only marks fields that have data and don't have errors
         function markValidFields(data) {
-            document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]')
+            document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], #other-title-input')
                 .forEach(input => {
                     const fieldName = input.getAttribute('name');
                     // If field has data and no error class, mark it as valid
@@ -117,6 +117,32 @@ window.onload = function() {
                 this.parentNode.appendChild(input);
                 // Automatically focus on the new input so user can start typing
                 input.focus();
+                
+                // Add focus/blur listeners to the dynamically created input
+                input.addEventListener('focus', function() {
+                    const errorSpan = this.parentNode.querySelector('span.error-message');
+                    if (errorSpan) errorSpan.remove();
+                    this.classList.remove('error');
+                    this.classList.add('focused');
+                });
+                input.addEventListener('blur', function() {
+                    this.classList.remove('focused');
+                });
+            }
+        });
+        
+        // Add listeners to all other title radio buttons to remove "Other" input when deselected
+        document.querySelectorAll('input[name="title"]').forEach(radio => {
+            if (radio.id !== 'other') {
+                radio.addEventListener('change', function() {
+                    if (this.checked) {
+                        // Remove the "Other" text input if it exists
+                        const otherInput = document.getElementById('other-title-input');
+                        if (otherInput) {
+                            otherInput.remove();
+                        }
+                    }
+                });
             }
         });
         
@@ -198,10 +224,24 @@ window.onload = function() {
                 }
             };
 
-            // Validate all fields by looping through the fieldValidations object
+            // Validate title field first
+            validateField('title', data['title'] || '', fieldValidations.title, errorTracker);
+            
+            // If "Other" title is selected, validate the otherTitle field immediately after title
+            if (data.title === 'other') {
+                const otherTitleValue = data.otherTitle || '';
+                validateField('otherTitle', otherTitleValue, {
+                    required: { validator: validationRules.required },
+                    minLength: { validator: validationRules.minLength, param: 2 }
+                }, errorTracker);
+            }
+            
+            // Validate remaining fields by looping through the fieldValidations object
             for (const [fieldName, rules] of Object.entries(fieldValidations)) {
-                const value = data[fieldName] || ''; // Get the value or empty string
-                validateField(fieldName, value, rules, errorTracker);
+                if (fieldName !== 'title') { // Skip title since we already validated it
+                    const value = data[fieldName] || ''; // Get the value or empty string
+                    validateField(fieldName, value, rules, errorTracker);
+                }
             }
 
             // Handle validation results
