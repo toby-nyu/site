@@ -99,8 +99,9 @@ legend {
     font-weight: bold;
 }
 
-/* Use flexbox to align labels and inputs horizontally */
-div {
+/* Use flexbox to align labels and inputs horizontally within forms */
+form div,
+fieldset div {
     display: flex;
     align-items: center;
     margin-bottom: var(--spacing-sm);
@@ -244,7 +245,7 @@ input[type="submit"]:hover {
    ============================================ */
 
 /* Position navigation absolutely in the header */
-nav {
+header nav {
     position: absolute;
     top: var(--spacing-sm);
     right: 2em;
@@ -252,7 +253,7 @@ nav {
 }
 
 /* Display navigation items in a horizontal row with flexbox */
-nav ul {
+header nav ul {
     display: flex;
     justify-content: space-evenly;
     list-style: none;
@@ -262,12 +263,12 @@ nav ul {
 }
 
 /* Remove default list item margins */
-nav li {
+header nav li {
     margin: 0;
 }
 
 /* Style navigation links as dark buttons with white text */
-nav a {
+header nav a {
     display: block;
     padding: 8px var(--spacing-md);
     background-color: rgba(0, 0, 0, 0.7);
@@ -279,7 +280,7 @@ nav a {
 }
 
 /* Blue background on hover for navigation links */
-nav a:hover {
+header nav a:hover {
     background-color: var(--color-primary-hover);
 }
 
@@ -291,20 +292,20 @@ nav a:hover {
 /* Tablet and small desktop adjustments (768px and below) */
 @media (max-width: 768px) {
     /* Adjust navigation positioning for smaller screens */
-    nav {
+    header nav {
         right: var(--spacing-sm);
         left: auto;
         top: var(--spacing-sm);
     }
     
     /* Stack navigation vertically */
-    nav ul {
+    header nav ul {
         flex-direction: column;
         gap: var(--spacing-xs);
     }
     
     /* Smaller, centered navigation links */
-    nav a {
+    header nav a {
         padding: 6px var(--spacing-sm);
         font-size: 12px;
         text-align: center;
@@ -321,7 +322,7 @@ nav a:hover {
 /* Mobile adjustments (480px and below) */
 @media (max-width: 480px) {
     /* Even smaller navigation links */
-    nav a {
+    header nav a {
         padding: var(--spacing-xs) 8px;
         font-size: 11px;
     }
@@ -567,11 +568,18 @@ body:has(main section) header h1 {
 /* Main content area for index page */
 main {
     padding-top: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
 }
 
 /* Remove top margin from first h2 in main */
 main h2:first-of-type {
     margin-top: 0;
+}
+
+/* Ensure paragraph after h2 displays before page-nav */
+main > p {
+    margin-bottom: var(--spacing-md);
 }
 
 /* Section boxes with left border accent for index page */
@@ -738,9 +746,165 @@ body:has(.code-section) code {
     }
 }
 
+
 @media (max-width: 480px) {
     body:has(.code-section) pre {
         padding: var(--spacing-sm);
         font-size: 12px;
     }
 }
+
+/* ============================================
+   PAGE NAVIGATION (Secondary Nav)
+   ============================================ */
+
+#page-nav {
+    background-color: var(--color-bg-light-blue);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+    display: block; /* Override any flex/inline display */
+}
+
+#page-nav h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary-dark);
+    font-size: 1.1em;
+}
+
+#page-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+#page-nav li {
+    margin: 0;
+}
+
+#page-nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: white;
+    color: var(--color-primary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-primary);
+    transition: all var(--transition-fast);
+    font-size: 0.95em;
+}
+
+#page-nav a:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    z-index: 1000;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#back-to-top:active {
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   TABLE STYLING
+   ============================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-lg) 0;
+}
+
+thead {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+tbody tr:hover {
+    background-color: var(--color-bg-gray);
+}
+
+td code {
+    background-color: var(--color-bg-gray);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    #page-nav ul {
+        flex-direction: column;
+    }
+    
+    #page-nav a {
+        display: block;
+        text-align: center;
+    }
+    
+    #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    table {
+        font-size: 0.9em;
+    }
+    
+    th, td {
+        padding: 8px;
+    }
+}
+
