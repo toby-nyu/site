@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Audio Player</title>
+    <link rel="stylesheet" href="../css/av-styles.css">
+    <link rel="stylesheet" href="../css/audio-custom.css">
+</head>
+<body class="audio-page">
+    <header>
+        <div id="logo">
+            <a href="../index.html" title="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <mask id="cutout">
+                            <rect x="0" y="0" width="200" height="200" fill="white"/>
+                            <text 
+                                x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" 
+                                font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">
+                                TB
+                            </text>
+                        </mask>
+                    </defs>
+                    <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#cutout)"/>
+                </svg>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Audio & Video Home</a></li>
+                <li><a href="audio.html">Audio</a></li>
+                <li><a href="audio-custom.html">Custom Audio Player</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="video_responsive.html">Responsive Video</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Custom Audio Player</h1>
+        <p>This audio player uses JavaScript to control playback instead of default HTML5 controls.</p>
+
+        <div class="audio-player">
+            <!-- Hidden audio element without controls -->
+            <audio id="audio">
+                <source src="../media/bootleg.mp3" type="audio/mpeg">
+                <source src="../media/bootleg.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <!-- Custom controls -->
+            <div class="player-controls">
+                <!-- Play/Pause button -->
+                <button id="playPauseBtn" class="control-btn" aria-label="Play">
+                    <span class="play-icon">▶</span>
+                    <span class="pause-icon" style="display: none;">⏸</span>
+                </button>
+
+                <!-- Stop button -->
+                <button id="stopBtn" class="control-btn" aria-label="Stop">⏹</button>
+
+                <!-- Time display -->
+                <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span class="time-separator">/</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+
+            <!-- Progress bar (seek control) -->
+            <div class="progress-container">
+                <label for="seekBar">Seek:</label>
+                <input type="range" id="seekBar" class="slider" min="0" max="100" value="0" step="0.1">
+            </div>
+
+            <!-- Volume control -->
+            <div class="volume-container">
+                <label for="volumeBar">Volume:</label>
+                <input type="range" id="volumeBar" class="slider" min="0" max="100" value="100" step="1">
+                <span id="volumeValue">100%</span>
+            </div>
+        </div>
+
+        <section class="explanation">
+            <h2>How It Works</h2>
+            <p>This custom audio player demonstrates JavaScript control of HTML5 audio:</p>
+            <ul>
+                <li><strong>Play/Pause Button:</strong> Toggles between play and pause states using <code>audio.play()</code> and <code>audio.pause()</code></li>
+                <li><strong>Stop Button:</strong> Pauses playback and resets to beginning using <code>audio.currentTime = 0</code></li>
+                <li><strong>Time Display:</strong> Shows current playback time and total duration in MM:SS format, updated via <code>timeupdate</code> event</li>
+                <li><strong>Seek Bar:</strong> Allows jumping to any position in the track by setting <code>audio.currentTime</code></li>
+                <li><strong>Volume Control:</strong> Adjusts audio volume from 0-100% using <code>audio.volume</code> property (0.0 to 1.0)</li>
+            </ul>
+        </section>
+
+        <section class="code-example">
+            <h2>Key JavaScript Methods</h2>
+            <ul>
+                <li><code>audio.play()</code> - Start playback</li>
+                <li><code>audio.pause()</code> - Pause playback</li>
+                <li><code>audio.currentTime</code> - Get/set playback position in seconds</li>
+                <li><code>audio.duration</code> - Get total length in seconds</li>
+                <li><code>audio.volume</code> - Get/set volume (0.0 to 1.0)</li>
+                <li><code>audio.paused</code> - Check if audio is paused (boolean)</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="../js/audio-custom.js"></script>
+</body>
+</html>

@@ -16,6 +16,7 @@
         <ul>
           <li><a href="index.html">Audio & Video Home</a></li>
           <li><a href="audio.html">Audio</a></li>
+          <li><a href="audio-custom.html">Custom Audio Player</a></li>
           <li><a href="video.html">Video</a></li>
           <li><a href="video_responsive.html">Responsive Video</a></li>
         </ul>
@@ -43,6 +44,17 @@
       <h2>About This Section</h2>
       <p>This section demonstrates various HTML5 audio and video techniques, including different implementation methods and responsive design approaches.</p>
 
+      <nav id="page-nav">
+        <ul>
+          <li><a href="#audio-examples">Audio Examples</a></li>
+          <li><a href="#video-examples">Video Examples</a></li>
+          <li><a href="#multimedia-reference">Multimedia Reference</a></li>
+          <li><a href="#learning-outcomes">Learning Outcomes</a></li>
+        </ul>
+      </nav>
+
+      <h2 id="audio-examples">Audio Examples</h2>
+
       <section>
         <h3><a href="audio.html">Audio Example</a></h3>
         <p>This page demonstrates the HTML5 <code>&lt;audio&gt;</code> element with multiple source formats for cross-browser compatibility.</p>
@@ -56,6 +68,25 @@
           <li><strong>Responsive Navigation:</strong> Vertically stacked navigation on mobile with media queries</li>
         </ul>
       </section>
+
+      <section>
+        <h3><a href="audio-custom.html">Custom Audio Player</a></h3>
+        <p>This page demonstrates a fully custom audio player built with JavaScript, providing complete control over playback without using the default HTML5 audio controls.</p>
+        <h4>Techniques Used:</h4>
+        <ul>
+          <li><strong>JavaScript Audio API:</strong> Controls playback using <code>audio.play()</code>, <code>audio.pause()</code>, and <code>audio.currentTime</code></li>
+          <li><strong>Custom UI Controls:</strong> Styled buttons for play/pause and stop functionality with icon toggling</li>
+          <li><strong>Time Display:</strong> Large, prominent time counter showing current position and total duration in MM:SS format</li>
+          <li><strong>Seek Control:</strong> Separate range input slider for jumping to any position in the audio track</li>
+          <li><strong>Volume Control:</strong> Independent volume slider with live percentage display (0-100%)</li>
+          <li><strong>Event Listeners:</strong> <code>timeupdate</code>, <code>loadedmetadata</code>, and <code>ended</code> events for real-time updates</li>
+          <li><strong>Progressive Enhancement:</strong> Hidden audio element with JavaScript-controlled interface</li>
+          <li><strong>Custom Styling:</strong> Gradient background, circular buttons, and styled range inputs with CSS custom properties</li>
+          <li><strong>Accessibility:</strong> ARIA labels and keyboard-friendly controls</li>
+        </ul>
+      </section>
+
+      <h2 id="video-examples">Video Examples</h2>
 
       <section>
         <h3><a href="video.html">Video Example</a></h3>
@@ -90,24 +121,248 @@
         </ul>
       </section>
 
+      <h2 id="multimedia-reference">HTML5 Multimedia Reference</h2>
+
       <section>
-        <h3>Key Learning Outcomes</h3>
+        <h3>Audio Element Attributes</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>Description</th>
+              <th>Values</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>controls</code></td>
+              <td>Displays default playback controls</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>autoplay</code></td>
+              <td>Automatically starts playing when loaded</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>loop</code></td>
+              <td>Repeats audio when finished</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>muted</code></td>
+              <td>Starts with audio muted</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>preload</code></td>
+              <td>Hints to browser how to load audio</td>
+              <td>none | metadata | auto</td>
+            </tr>
+            <tr>
+              <td><code>src</code></td>
+              <td>URL of the audio file</td>
+              <td>URL</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Video Element Attributes</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>Description</th>
+              <th>Values</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>controls</code></td>
+              <td>Displays default playback controls</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>autoplay</code></td>
+              <td>Automatically starts playing when loaded</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>loop</code></td>
+              <td>Repeats video when finished</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>muted</code></td>
+              <td>Starts with audio muted</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>playsinline</code></td>
+              <td>Plays inline on iOS devices (not fullscreen)</td>
+              <td>Boolean</td>
+            </tr>
+            <tr>
+              <td><code>poster</code></td>
+              <td>Image displayed before video loads</td>
+              <td>URL</td>
+            </tr>
+            <tr>
+              <td><code>preload</code></td>
+              <td>Hints to browser how to load video</td>
+              <td>none | metadata | auto</td>
+            </tr>
+            <tr>
+              <td><code>width</code></td>
+              <td>Width of the video player</td>
+              <td>Pixels or percentage</td>
+            </tr>
+            <tr>
+              <td><code>height</code></td>
+              <td>Height of the video player</td>
+              <td>Pixels or percentage</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>JavaScript Audio/Video Properties & Methods</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Property/Method</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>play()</code></td>
+              <td>Method</td>
+              <td>Starts playing the media</td>
+            </tr>
+            <tr>
+              <td><code>pause()</code></td>
+              <td>Method</td>
+              <td>Pauses playback</td>
+            </tr>
+            <tr>
+              <td><code>load()</code></td>
+              <td>Method</td>
+              <td>Reloads the media element</td>
+            </tr>
+            <tr>
+              <td><code>currentTime</code></td>
+              <td>Property</td>
+              <td>Get/set playback position (seconds)</td>
+            </tr>
+            <tr>
+              <td><code>duration</code></td>
+              <td>Property</td>
+              <td>Total length of media (seconds)</td>
+            </tr>
+            <tr>
+              <td><code>volume</code></td>
+              <td>Property</td>
+              <td>Get/set volume (0.0 to 1.0)</td>
+            </tr>
+            <tr>
+              <td><code>paused</code></td>
+              <td>Property</td>
+              <td>Boolean indicating if media is paused</td>
+            </tr>
+            <tr>
+              <td><code>ended</code></td>
+              <td>Property</td>
+              <td>Boolean indicating if playback ended</td>
+            </tr>
+            <tr>
+              <td><code>muted</code></td>
+              <td>Property</td>
+              <td>Get/set muted state (boolean)</td>
+            </tr>
+            <tr>
+              <td><code>playbackRate</code></td>
+              <td>Property</td>
+              <td>Get/set playback speed (1.0 = normal)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Common Media Events</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>loadedmetadata</code></td>
+              <td>Fires when duration and dimensions are available</td>
+            </tr>
+            <tr>
+              <td><code>timeupdate</code></td>
+              <td>Fires when currentTime changes during playback</td>
+            </tr>
+            <tr>
+              <td><code>play</code></td>
+              <td>Fires when playback starts</td>
+            </tr>
+            <tr>
+              <td><code>pause</code></td>
+              <td>Fires when playback is paused</td>
+            </tr>
+            <tr>
+              <td><code>ended</code></td>
+              <td>Fires when playback reaches the end</td>
+            </tr>
+            <tr>
+              <td><code>volumechange</code></td>
+              <td>Fires when volume or muted state changes</td>
+            </tr>
+            <tr>
+              <td><code>error</code></td>
+              <td>Fires when an error occurs loading media</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <h2 id="learning-outcomes">Key Learning Outcomes</h2>
+
+      <section>
+        <h3>Learning Outcomes</h3>
         <ul>
-          <li>Understand HTML5 multimedia elements and their attributes</li>
-          <li>Implement cross-browser compatible media with multiple source formats</li>
+          <li>Understand HTML5 multimedia elements (<code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>) and their attributes</li>
+          <li>Implement cross-browser compatible media with multiple source formats (MP3, OGG, MP4, WebM)</li>
           <li>Use CSS positioning (absolute, fixed) and viewport units for immersive layouts</li>
-          <li>Apply JavaScript for responsive media optimization</li>
+          <li>Apply JavaScript for responsive media optimization and dynamic source switching</li>
+          <li>Build custom media controls using JavaScript Audio/Video API</li>
           <li>Create accessible fallback content for older browsers</li>
-          <li>Optimize media delivery based on device capabilities</li>
+          <li>Optimize media delivery based on device capabilities and screen sizes</li>
           <li>Build unified CSS architecture with class and ID-based variations</li>
           <li>Implement responsive design with media queries for mobile-first layouts</li>
           <li>Use modern CSS selectors like <code>:has()</code> for conditional styling</li>
           <li>Apply negative margins to extend elements beyond parent containers</li>
+          <li>Handle media events (<code>timeupdate</code>, <code>loadedmetadata</code>, <code>ended</code>) for interactive controls</li>
+          <li>Format and display time values in user-friendly formats</li>
+          <li>Create custom range input styling for seek and volume controls</li>
+          <li>Implement progressive enhancement patterns for JavaScript-dependent features</li>
         </ul>
       </section>
+
+      <button id="back-to-top">↑</button>
     </main>
     <footer>
       <p>&copy; 2025 NYU London - Web Design & Computer Principles</p>
     </footer>
+    <script src="../js/av-index.js"></script>
   </body>
 </html>
