@@ -42,7 +42,18 @@
       <h2>About This Section</h2>
       <p>This section demonstrates HTML form creation, styling, validation, and user input handling using both client-side and server-side techniques.</p>
 
-      <section>
+      <nav id="page-nav">
+        <h3>Jump to Section:</h3>
+        <ul>
+          <li><a href="#form-demo">Comprehensive Form Demo</a></li>
+          <li><a href="#validated-form">Client-Side Validated Form</a></li>
+          <li><a href="#php-code">PHP Server-Side Code</a></li>
+          <li><a href="#input-types">HTML Form Input Types Reference</a></li>
+          <li><a href="#learning-outcomes">Key Learning Outcomes</a></li>
+        </ul>
+      </nav>
+
+      <section id="form-demo">
         <h3><a href="form-demo.html">Comprehensive Form Demo</a></h3>
         <p>This page showcases a complete sign-up form with multiple input types, organized using fieldsets and enhanced with JavaScript validation and comprehensive user feedback. <strong>This example includes extensive comments in the HTML, CSS, and JavaScript files to help you understand how everything works together.</strong></p>
         
@@ -118,7 +129,7 @@
         </ol>
       </section>
 
-      <section>
+      <section id="validated-form">
         <h3><a href="form.html">Client-Side Validated Form</a></h3>
         <p>This page demonstrates a streamlined account creation form with JavaScript validation to ensure data quality before submission.</p>
         <h4>Techniques Used:</h4>
@@ -135,7 +146,7 @@
         </ol>
       </section>
 
-      <section>
+      <section id="php-code">
         <h3><a href="form2.html">PHP Server-Side Code</a></h3>
         <p>This page displays the complete PHP code used to process form submissions on the external server. This is a learning resource that shows you the server-side code without actually running it.</p>
         
@@ -164,7 +175,159 @@
         <p>While client-side JavaScript validation improves user experience, server-side validation with PHP is essential for security. Users can bypass JavaScript validation, so the server must always verify and sanitize data before processing or storing it. This page shows you both the validation logic and the success page that users see after form submission.</p>
       </section>
 
-      <section>
+      <section id="input-types">
+        <h3>HTML Form Input Types Reference</h3>
+        <p>The following table shows all available HTML form input types and the <code>&lt;textarea&gt;</code> element. While the demos above don't use every type, this reference helps you understand the full range of options available for form creation.</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Input Type</th>
+              <th>Code Example</th>
+              <th>Description</th>
+              <th>Used in Demos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>text</strong></td>
+              <td><code>&lt;input type="text"&gt;</code></td>
+              <td>Single-line text input for general text data</td>
+              <td>✓ (name fields)</td>
+            </tr>
+            <tr>
+              <td><strong>email</strong></td>
+              <td><code>&lt;input type="email"&gt;</code></td>
+              <td>Email address with built-in format validation</td>
+              <td>✓ (both forms)</td>
+            </tr>
+            <tr>
+              <td><strong>password</strong></td>
+              <td><code>&lt;input type="password"&gt;</code></td>
+              <td>Masked text input for secure password entry</td>
+              <td>✓ (form.html)</td>
+            </tr>
+            <tr>
+              <td><strong>tel</strong></td>
+              <td><code>&lt;input type="tel"&gt;</code></td>
+              <td>Telephone number with numeric keyboard on mobile</td>
+              <td>✓ (phone field)</td>
+            </tr>
+            <tr>
+              <td><strong>radio</strong></td>
+              <td><code>&lt;input type="radio"&gt;</code></td>
+              <td>Mutually exclusive options (only one can be selected)</td>
+              <td>✓ (title selection)</td>
+            </tr>
+            <tr>
+              <td><strong>checkbox</strong></td>
+              <td><code>&lt;input type="checkbox"&gt;</code></td>
+              <td>Toggle option for yes/no or multiple selections</td>
+              <td>✓ (newsletter)</td>
+            </tr>
+            <tr>
+              <td><strong>submit</strong></td>
+              <td><code>&lt;input type="submit"&gt;</code></td>
+              <td>Button that submits the form</td>
+              <td>✓ (all forms)</td>
+            </tr>
+            <tr>
+              <td><strong>number</strong></td>
+              <td><code>&lt;input type="number"&gt;</code></td>
+              <td>Numeric input with increment/decrement controls</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>date</strong></td>
+              <td><code>&lt;input type="date"&gt;</code></td>
+              <td>Date picker for selecting calendar dates</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>time</strong></td>
+              <td><code>&lt;input type="time"&gt;</code></td>
+              <td>Time picker for hours and minutes</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>datetime-local</strong></td>
+              <td><code>&lt;input type="datetime-local"&gt;</code></td>
+              <td>Combined date and time picker (no timezone)</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>month</strong></td>
+              <td><code>&lt;input type="month"&gt;</code></td>
+              <td>Month and year selector</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>week</strong></td>
+              <td><code>&lt;input type="week"&gt;</code></td>
+              <td>Week and year selector</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>color</strong></td>
+              <td><code>&lt;input type="color"&gt;</code></td>
+              <td>Color picker for selecting hex colors</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>range</strong></td>
+              <td><code>&lt;input type="range"&gt;</code></td>
+              <td>Slider control for selecting a value within a range</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>file</strong></td>
+              <td><code>&lt;input type="file"&gt;</code></td>
+              <td>File upload selector with browse button</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>url</strong></td>
+              <td><code>&lt;input type="url"&gt;</code></td>
+              <td>URL input with format validation</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>search</strong></td>
+              <td><code>&lt;input type="search"&gt;</code></td>
+              <td>Search field with clear button (browser-specific)</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>hidden</strong></td>
+              <td><code>&lt;input type="hidden"&gt;</code></td>
+              <td>Invisible field for storing data (not displayed to user)</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>button</strong></td>
+              <td><code>&lt;input type="button"&gt;</code></td>
+              <td>Generic button (no default behavior, requires JavaScript)</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>reset</strong></td>
+              <td><code>&lt;input type="reset"&gt;</code></td>
+              <td>Button that clears all form fields to default values. <strong>Generally avoided</strong> because users often click it accidentally, losing all their entered data. Modern UX best practices recommend not including reset buttons.</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td><strong>textarea</strong></td>
+              <td><code>&lt;textarea&gt;&lt;/textarea&gt;</code></td>
+              <td>Multi-line text input for longer content (not an input type, but a separate element)</td>
+              <td>✗</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p><strong>Note:</strong> HTML5 input types like <code>date</code>, <code>time</code>, <code>color</code>, and <code>number</code> provide built-in browser controls and validation. Browser support and appearance may vary. For critical functionality, consider using JavaScript-based alternatives or polyfills for consistent cross-browser experience.</p>
+      </section>
+
+      <section id="learning-outcomes">
         <h3>Key Learning Outcomes</h3>
         <ul>
           <li>Understand HTML form structure with <code>&lt;form&gt;</code>, <code>action</code>, and <code>method</code> attributes</li>
@@ -185,5 +348,9 @@
     <footer>
       <p>&copy; 2025 NYU London - Web Design & Computer Principles</p>
     </footer>
+    
+    <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+    
+    <script src="../js/forms-index.js"></script>
   </body>
 </html>
