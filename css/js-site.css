@@ -278,3 +278,51 @@ p {
     border-radius: 12px;
   }
 }
+
+/* =============================================================
+   FONT LOADER OVERLAY
+   Displays until custom fonts (headings, text) are ready.
+   Uses document.fonts.ready in font-loader.js
+   ============================================================= */
+body.fonts-loading header,
+body.fonts-loading main,
+body.fonts-loading footer {
+  visibility: hidden; /* Keep layout space to avoid reflow */
+}
+
+#font-loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fdf6e3, #ffe0f0);
+  z-index: 2000;
+  font-family: system-ui, Arial, sans-serif; /* Ensure readable fallback */
+  gap: 20px;
+}
+
+#font-loader p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(0,0,0,0.15);
+  border-top-color: #ff69b4;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; border-top-color: #ff69b4; }
+}

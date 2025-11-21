@@ -7,7 +7,12 @@
         <link rel="stylesheet" href="../css/js-site.css">
         <script src="../js/article-expander.js" defer></script>
     </head>
-    <body>
+    <body class="fonts-loading">
+        <div id="font-loader" role="status" aria-live="polite">
+            <div class="spinner" aria-hidden="true"></div>
+            <p>Loading site fonts…</p>
+            <noscript><p>JavaScript disabled – fonts may flash while loading.</p></noscript>
+        </div>
 
         <header>
              <div id="logo">
@@ -73,6 +78,6 @@
         <footer>
             <p>&copy; 2025 NYU. All rights reserved.</p>
         </footer>
-        
+        <script src="../js/font-loader.js" defer></script>
     </body>
 </html>

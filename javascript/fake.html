@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="../css/js-site.css">
     <script src="../js/article-expander.js" defer></script>
 </head>
-<body>
+<body class="fonts-loading">
+    <div id="font-loader" role="status" aria-live="polite">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading site fonts…</p>
+        <noscript><p>JavaScript disabled – fonts may flash while loading.</p></noscript>
+    </div>
     <div id="container">
         <header>
             <div id="logo">
@@ -191,6 +196,7 @@
             </div>
             <button id="close-modal" class="close-btn">×</button>
         </div>
+    <script src="../js/font-loader.js" defer></script>
     </body>
 
 </html>
