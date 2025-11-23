@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Grid Demo 1</title>
+        <link rel="stylesheet" type="text/css" href="../css/grid-demo.css"/>
+    </head>
+<body>
+    <header>
+        <h1>Grid Demo 1</h1>
+        <h2>Notes</h2>
+        <p>The example from class yesterday (30th Oct).</p>
+        <p><strong>NOTE: The footer is NOT part of the grid.</strong> 
+        Instead, the footer is positioned to the right of the grid items.</p>
+        <p>This is because the footer is outside of the grid container, 
+        and only children of the grid container can be grid items. It actually 
+        sits in the space where the last column of the grid is 
+        (it's not populated in the grid, though, using some complicated CSS 
+        positioning).</p>
+        <h3>Take a look and see!</h3>
+
+    </header>
+
+    <!-- main content is grid container -->
+    <main class="grid-container">
+        <section>
+            <p>Section 1</p>
+        </section>
+        <section>
+            <p>Section 2</p>
+        </section>
+        <section>
+            <p>Section 3</p>
+        </section>
+        <section>
+            <p>Section 4</p>
+        </section>
+
+    </main>
+    <!-- footer is outside grid container -->
+    <footer>
+        <p>&#169; NYU London 2025</p>
+    </footer>
+</body>
+</html>

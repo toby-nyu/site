@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Grid Examples</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Index page for CSS Grid layout examples" />
+    <link rel="stylesheet" href="../css/simple-page-grid.css" />
+    <link rel="stylesheet" href="../css/grid-index.css" />
+  </head>
+  <body class="grid-container">
+    <header>
+      <div id="logo">
+        <a href="../index.html" title="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <mask id="grid-cutout">
+                <rect x="0" y="0" width="200" height="200" fill="white"/>
+                <text x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" font-size="8em" font-weight="bold" fill="black" dominant-baseline="middle">TB</text>
+              </mask>
+            </defs>
+            <rect x="0" y="0" width="200" height="200" fill="#000" mask="url(#grid-cutout)"/>
+          </svg>
+        </a>
+      </div>
+      <h1>CSS Grid Examples</h1>
+      <nav aria-label="Section navigation">
+        <ul>
+          <li><a href="index.html">Grid Home</a></li>
+          <li><a href="simple-page-grid.html">Simple Page Grid</a></li>
+          <li><a href="grid-demo.html">Grid Demo 1</a></li>
+          <li><a href="responsive-grid.html">Responsive Grid</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>About These Grid Pages</h2>
+      <p>Three focused examples illustrate different CSS Grid concepts: explicit placement, responsive sizing, and full page layout using <code>grid-template-areas</code>. Use the navigation above to explore each implementation.</p>
+
+      <section id="grid-demo">
+        <h3><a href="grid-demo.html">Grid Demo 1</a></h3>
+        <p>Demonstrates explicit row / column placement, spanning, and overlay stacking via <code>z-index</code>. The footer is intentionally positioned outside the grid.</p>
+        <ul class="feature-list">
+          <li>Manual <code>grid-row-start</code>/<code>grid-column-end</code> placement</li>
+          <li>Item spanning with <code>grid-area</code> shorthand</li>
+          <li>Overlay item using <code>z-index</code></li>
+          <li>External footer positioning vs grid items</li>
+        </ul>
+      </section>
+
+      <section id="responsive-grid">
+        <h3><a href="responsive-grid.html">Responsive Grid</a></h3>
+        <p>Shows how column counts and implicit rows adapt as viewport width changes, using <code>grid-auto-rows</code> to normalize heights.</p>
+        <ul class="feature-list">
+          <li>Breakpoint-driven column adjustments</li>
+          <li>Implicit row sizing with <code>grid-auto-rows</code></li>
+          <li>Progressive enhancement of layout density</li>
+        </ul>
+      </section>
+
+      <section id="simple-page-grid">
+        <h3><a href="simple-page-grid.html">Simple Page Grid</a></h3>
+        <p>Applies grid to a page skeleton (header, main, aside, footer) combining fractional columns and fixed-height rows for a balanced composition.</p>
+        <ul class="feature-list">
+          <li>Semantic regions mapped to grid cells</li>
+          <li>Fractional column sizing <code>3fr / 1fr</code></li>
+          <li>Viewport-based row heights (vh units)</li>
+          <li>Separation of primary and ancillary content</li>
+        </ul>
+      </section>
+    </main>
+    <aside>
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="grid-demo.html">Explicit Placement</a></li>
+        <li><a href="responsive-grid.html">Responsive Grid</a></li>
+        <li><a href="simple-page-grid.html">Page Layout Grid</a></li>
+      </ul>
+      <p><strong>Tip:</strong> Compare how each example defines rows, columns, and areas to understand when to use explicit coordinates versus template areas.</p>
+    </aside>
+    <footer>
+      <p>&copy; 2025 NYU London - Web Design & Computer Principles</p>
+    </footer>
+  </body>
+</html>
