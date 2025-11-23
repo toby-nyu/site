@@ -6,15 +6,15 @@ function setVideoSource() {
     
     let videoSrc;
     if (width >= 1920) {
-        videoSrc = 'sample-video-1080.mp4';
+        videoSrc = '../media/sample-video-1080.mp4';
     } else if (width >= 1280) {
-        videoSrc = 'sample-video-720.mp4';
+        videoSrc = '../media/sample-video-720.mp4';
     } else {
-        videoSrc = 'sample-video-480.mp4';
+        videoSrc = '../media/sample-video-480.mp4';
     }
     
     // Only update if the source has changed
-    if (source.src !== videoSrc) {
+    if (!source.src.endsWith(videoSrc)) {
         source.src = videoSrc;
         video.load(); // Reload the video with the new source
     }
