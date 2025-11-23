@@ -5,28 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Simple Site</title>
   <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #111; line-height: 1.5; }
-    header, footer { text-align: center; margin-bottom: 1.5rem; }
-    nav > ul { list-style: disc inside; padding-left: 0; }
-    nav ul ul { list-style: circle inside; padding-left: 2rem; }
-    nav a { color: #0a66ff; text-decoration: none; }
-    nav a:hover { text-decoration: underline; }
-    section { margin-bottom: 1.25rem; }
-    #logo {
-                width: 6%;
-                margin: 20px auto;
-                position: absolute;
-                left: 2em;
-                top: -1em;
-            }
-    #logo svg {
-                border: 5px solid #000;
-                border-radius: 15px;
-                display: block;
-            }
-    #logo svg rect {
-                fill: #f5deb3;
-            }
+    :root { --gap:1.25rem; --accent:#0a66ff; --accent-dark:#084fbf; --bg:#f7f9fb; --card-border:#d8dde3; }
+    * { box-sizing:border-box; }
+    body { font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial; max-width:1150px; margin:2rem auto; padding:0 1rem 3rem; color:#111; line-height:1.5; background:var(--bg); }
+    header, footer { text-align:center; margin-bottom:1.5rem; }
+    section { margin-bottom:1.75rem; }
+    nav { margin-top:.75rem; }
+    /* Two-column responsive layout for top-level site sections */
+    nav > ul { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--gap); }
+    nav > ul > li { background:#fff; padding:0.85rem 0.85rem 1rem; border:1px solid var(--card-border); border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,.06); display:flex; flex-direction:column; gap:.6rem; }
+    nav > ul > li > a { font-weight:600; font-size:1rem; color:var(--accent); text-decoration:none; }
+    nav > ul > li > a:hover, nav > ul > li > a:focus { text-decoration:underline; color:var(--accent-dark); }
+    /* Nested lists styled compactly */
+    nav ul ul { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr; gap:.35rem; }
+    nav ul ul ul { padding-left:0; }
+    nav ul ul li a { display:block; text-decoration:none; font-size:.85rem; padding:.35rem .55rem; border-radius:4px; background:#edf2f7; color:#222; }
+    nav ul ul li a:hover, nav ul ul li a:focus { background:#d9e4ee; }
+    nav ul ul ul li a { background:#e9eef3; }
+    nav ul ul ul li a:hover { background:#d4dde5; }
+    a { color:var(--accent); }
+    a:hover { text-decoration:underline; }
+    #logo { width:6%; margin:20px auto; position:absolute; left:2em; top:-1em; }
+    #logo svg { border:5px solid #000; border-radius:15px; display:block; }
+    #logo svg rect { fill:#f5deb3; }
+    @media (max-width:700px){ nav > ul { grid-template-columns:1fr; } nav > ul > li { padding:.75rem .75rem .9rem; } }
+    /* Thumbnail images inside navigation cards */
+    .nav-thumb { width:100%; display:block; object-fit:contain; max-height:140px; margin:.25rem 0 .35rem; }
+    .nav-thumb.raster { object-fit:cover; border-radius:6px; }
   </style>
 </head>
 <body>
@@ -60,6 +65,7 @@
         <ul>
           <li><a href="me/index.html">HTML</a>
             <ul>
+              <li><a href="me/index.html">HTML Home</a></li>
               <li><a href="me/about.html">About Me</a></li>
               <li><a href="me/css.html">CSS Examples</a></li>
               <li><a href="me/experience.html">Experience</a></li>
@@ -68,14 +74,20 @@
           </li>
           <li><a href="midterm/index.html">Midterm revision site</a>
             <ul>
+              <li><a href="midterm/index.html">Midterm Home</a></li>
               <li><a href="midterm/about-us.html">About Us</a></li>
               <li><a href="midterm/contact.html">Contact</a></li>
             </ul>
           </li>
-          <li><a href="raster-graphics/index.html">Raster Graphics</a></li>
-          <li><a href="vector-graphics/index.html">Vector Graphics</a></li>
+          <li><a href="raster-graphics/index.html">Raster Graphics</a>
+            <img src="media/bitsy.jpg" alt="Bitsy the cat" class="nav-thumb raster" />
+          </li>
+          <li><a href="vector-graphics/index.html">Vector Graphics</a>
+            <img src="media/logo.svg" alt="Vector site logo" class="nav-thumb" />
+          </li>
           <li><a href="grid/index.html">CSS Grid</a>
             <ul>
+              <li><a href="grid/index.html">CSS Grid Home</a></li>
               <li><a href="grid/simple-page-grid.html">Simple Page Layout</a></li>
               <li><a href="grid/responsive-grid.html">Responsive Grid</a></li>
               <li><a href="grid/grid-demo.html">Grid Demo 1</a></li>
@@ -83,6 +95,7 @@
           </li>
           <li><a href="javascript/index.html">JavaScript</a>
              <ul>
+               <li><a href="javascript/index.html">JavaScript Home</a></li>
                <li><a href="javascript/js-site.html">JavaScript Class Example site</a>
                  <ul>
                    <li><a href="javascript/real.html">Real Articles</a></li>
@@ -95,6 +108,7 @@
           </li>
           <li><a href="av/index.html">Audio &amp; Video</a>
              <ul>
+              <li><a href="av/index.html">Audio &amp; Video Home</a></li>
               <li><a href="av/audio.html">Audio Example</a></li>
               <li><a href="av/audio-custom.html">Custom Audio Player</a></li>
               <li><a href="av/video.html">Video Example</a></li>
@@ -105,6 +119,7 @@
           
           <li><a href="forms/index.html">Forms</a>
             <ul>
+              <li><a href="forms/index.html">Forms Home</a></li>
               <li><a href="forms/form.html">Simple form with JS Validation</a></li>
               <li><a href="forms/form-demo.html">Advanced form in class example</a></li>
               <li><a href="forms/form2.html">PHP Form Example</a></li>
