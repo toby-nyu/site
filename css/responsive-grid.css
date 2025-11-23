@@ -1,0 +1,39 @@
+.item1, .item5, .item9, .item13  {
+    background: rgb(171, 247, 171);
+    border: 1px solid black;
+}
+.item2, .item6, .item10, .item14 {
+    background: rgb(252, 252, 161);
+    border: 1px solid black;
+}
+.item3, .item7, .item11, .item15 {
+    background: rgb(178, 178, 249);
+    border: 1px solid black;
+}
+
+
+.item4, .item8, .item12, .item16 {
+    background: rgb(255, 193, 193);
+    border: 1px solid black;
+}
+
+
+.grid-container {
+    display: grid;
+    max-width: 1600px;
+    border: 5px solid rgb(150, 150, 150);
+    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(auto-fit,minmax(100px, 1fr));
+}
+
+#strike {
+    text-decoration: line-through;
+}
+
+pre {
+    background-color: rgb(246, 245, 245);
+    padding-top: 10px;
+    border: 1px solid rgb(233, 233, 233);
+    text-align: left;
+    margin-left: 0;
+}

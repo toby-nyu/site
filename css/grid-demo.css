@@ -1,0 +1,128 @@
+/* grid-demo1.css */
+
+/*
+ * the css uses section:nth-child to target each grid item (HTML section element)
+ * so the order of the elements in the html matters
+ * alternatively, you could give each section a class and target by class
+ * or use ids, then the position in the HTML would not matter
+ * BTW - grid CSS starts at line 57
+ */
+
+
+/* body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    width:760px;
+    padding: 0;
+}
+
+/* styling the respective sections */
+
+/* target paragraphs inside each section */
+section p { 
+    padding: 1em;
+}
+/* first section */
+main > section:nth-child(1) { 
+    background: rgb(168, 244, 168);
+}
+
+/* second section */
+main > section:nth-child(2) {
+    background: rgb(248, 248, 87);
+}
+
+/* third section */
+main > section:nth-child(3) {
+    background: rgb(158, 158, 249);
+}
+
+/* fourth section */
+main > section:nth-child(4) {
+    background: rgb(248, 166, 166);
+}
+
+/* footer styles */
+footer {
+    background: rgb(9, 0, 0);
+    color: white;
+    /* turn text on its side 90 degrees */
+    writing-mode: vertical-rl;
+    text-align: center;
+    letter-spacing: 0.2rem;
+}
+
+
+/* grid container styles */
+main {
+    display: grid;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px; /* 6 rows */;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 50px; /* 7 columns */;
+    gap: 10px;
+    /* grid-auto-flow: row;  allows any additional, non-explicitly positioned items to fill the grid */
+    /* grid-auto-row: 100px; sets the size of any implicitly created rows */
+}
+
+
+/* target the first section */
+main > section:nth-child(1) {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+
+/* item1 shorthand */
+/*
+main > section:nth-child(1) {
+    grid-row: 1 / span 3;
+    grid-column: 1 / span 5;
+}  
+*/
+
+
+/* section 2 will span 2 rows and 2 columns directly after item1 */
+main > section:nth-child(2) {
+    grid-row: 1 /  3;
+    grid-column: 5 /  7;
+}
+
+
+/* item2 shorthand below is OK, but changes item2's position if item 1 is resized */
+/*
+main > section:nth-child(2) {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+*/
+
+/* section 3 will span from row 3 to the end and column 1 to the end */
+/* full shorthand */
+main > section:nth-child(3) {
+    /*         row-start 3 / column-start 1 / row-end 7 / column-end 7;  */
+    grid-area:           3 /              1 /         7 /            7;
+/*  grid-area:           3 /              1 /        -1 /           -1;  */
+/* also works with minus numbers starting the row/column count from the bottom right instead of top left */
+
+}
+
+/* section 4 positioned on top of other items */
+main > section:nth-child(4) {
+    grid-area: 2 / 4 / 4 /6;
+    z-index: 1; /* bring this item to the front */
+}
+/* z-index https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index */
+
+/* footer positioned to the right of other items */
+/* cannot use grid-area since footer is outside grid container */
+/* although it does actually sit in the space where the last column of the grid is (it's not populated in the grid) */
+/* see how complicated this gets without grid positioning */
+footer {
+    position: relative;
+    top: -650px;
+    left: 660px;
+    height: 650px;
+    width: 50px; 
+}

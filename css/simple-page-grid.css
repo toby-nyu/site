@@ -1,0 +1,58 @@
+/* css reset */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: rgb(218, 248, 218);
+}
+main {
+    background: rgb(246, 246, 167);
+}
+
+aside {
+    background: rgb(211, 211, 242);
+}
+
+footer {
+    background: rgb(237, 204, 204);
+}
+
+
+.grid-container {
+    display: grid;
+        grid-template-rows: auto minmax(70vh, auto) 15vh; /* 3 rows */
+    grid-template-columns: 3fr 1fr; /* 2 columns */;
+    grid-template-areas: 
+        "header header"
+        "menu aside"
+        "footer footer";
+        column-gap: 2em;;
+    
+}
+
+header{
+    grid-area: header;
+}
+
+main{
+    grid-area: menu;
+    /* target this grid area's height to fill available space */
+
+    height: 100%;
+}
+
+aside{
+    grid-area: aside;
+}
+
+footer{
+    grid-area: footer;
+}
+
+/* target all direct children of body, so all grid items, header, main, aside, footer */
+body > * {
+    padding: 1em;
+    font-family: Arial, sans-serif;
+}

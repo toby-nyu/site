@@ -1,0 +1,18 @@
+/* Grid Index Page Specific Styles (migrated from previous inline styles) */
+
+body.grid-container { font-family: Arial, sans-serif; margin:0 auto; max-width:880px; padding:0 1.25rem 3rem; line-height:1.45; }
+header { position:relative; margin:1.5rem 0 2rem; padding:1rem 1rem 1.25rem 1rem; background:#f5f7fa; border:1px solid #d8dde3; border-radius:10px; }
+#logo { position:absolute; top:1rem; right:1rem; width:70px; }
+#logo svg { display:block; width:100%; height:auto; }
+nav ul { list-style:none; margin:.75rem 0 0; padding:0; display:flex; flex-wrap:wrap; gap:.5rem; }
+nav a { display:inline-block; background:#162d50; color:#fff; text-decoration:none; padding:.55rem .85rem; border-radius:4px; font-size:.9rem; }
+nav a:hover, nav a:focus { background:#0d1d34; }
+main h2 { margin-top:0; }
+section { margin:1.75rem 0; padding:1rem 1rem 1.25rem; background:#fff; border-left:4px solid #162d50; box-shadow:0 2px 6px rgba(0,0,0,.08); }
+section h3 { margin-top:0; }
+ul.feature-list { list-style:disc; padding-left:1.25rem; margin:.5rem 0 0; }
+aside { background:#f0f4f8; padding:1rem; border-radius:8px; }
+aside h2 { margin-top:0; font-size:1.1rem; }
+aside ul { list-style:disc; padding-left:1.25rem; margin:.5rem 0; }
+footer { text-align:center; font-size:.85rem; color:#555; border-top:1px solid #d8dde3; padding-top:1.25rem; }
+@media (max-width:700px){ nav ul { flex-direction:column; } #logo { position:static; margin:0 0 .75rem auto; } header { padding-top:1rem; } }
