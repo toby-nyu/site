@@ -41,11 +41,16 @@
         </video>
         <h1>Video Example</h1>
        <section id="overlay">
-         <p>This is an example of a video element that automatically plays</p> 
-        <p>The video is muted, and fits the width of the page</p>
-        <p>The video is set to play inline on mobile devices</p>
-        <p>Make sure to include multiple source formats for better browser 
-        compatibility</p>
+         <p>This page demonstrates responsive video that adapts to your screen size</p> 
+        <p>JavaScript automatically selects the appropriate video resolution based on your window width:</p>
+        <ul>
+            <li>1920px and wider: 1080p HD video</li>
+            <li>1280px - 1919px: 720p HD video</li>
+            <li>Below 1280px: 480p SD video</li>
+        </ul>
+        <p>The video switches resolution when you resize the browser window (with a 250ms debounce delay)</p>
+        <p>The video is muted, autoplays, loops, and fits the full width of the page</p>
+        <p>On mobile devices, the <i>playsinline</i> attribute prevents fullscreen playback</p>
     </section>
     </header>
     
